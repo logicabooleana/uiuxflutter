@@ -1,0 +1,57 @@
+{
+  "project_info": {
+    "project_number": "37367466163",
+    "firebase_url": "https://interfaz-de-usuario-2b759.firebaseio.com",
+    "project_id": "interfaz-de-usuario-2b759",
+    "storage_bucket": "interfaz-de-usuario-2b759.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37367466163:android:abfd7a59c21bf57acdc8c6",
+        "android_client_info": {
+          "package_name": "com.logicabooleana.desingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37367466163-9prvcaau71ssh674ldd067e2ntfsk337.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.logicabooleana.desingapp",
+            "certificate_hash": "dd418076d215c12c462e781c86728b6b309f0048"
+          }
+        },
+        {
+          "client_id": "37367466163-cqfi35br038vubttf9suqhogan6n6jal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.logicabooleana.desingapp",
+            "certificate_hash": "362754dc45d99c716caf710380299d87f34b5ebc"
+          }
+        },
+        {
+          "client_id": "37367466163-kk0ghvkasigk3ipvgukkt8lgdcv5gmu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4FzMbE0m2-MaqeGF81zDbQz_S06qRF8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37367466163-kk0ghvkasigk3ipvgukkt8lgdcv5gmu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8441738551183357~9110255687"
+    }
+  ],
+  "configuration_version": "1"
+}

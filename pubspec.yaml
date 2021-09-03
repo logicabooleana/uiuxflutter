@@ -1,0 +1,140 @@
+name: desingapp
+description: Interfaces de usuario y experiencias recreadas con Flutter.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 2.1.4+22
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  # Gestor de Estados
+  get: ^4.3.8 # GetX es una solución potente y extraligera para Flutter. Combina la gestión del estado de alto rendimiento, la inyección inteligente de dependencias y la gestión de rutas de forma rápida y práctica.
+
+  # Firebase
+  firebase_core: ^1.1.0
+  firebase_auth: ^1.1.3
+  google_sign_in: ^5.0.2
+  firebase_analytics: ^8.0.3
+  cloud_firestore: ^2.0.0
+  firebase_storage: ^8.0.5
+  #Google
+  google_mobile_ads: ^0.13.4
+
+  #
+  flutter_bloc: ^7.0.0
+  equatable: ^2.0.0
+
+  # otros
+  get_storage: ^2.0.3
+  flutter_card_swipper: ^0.4.0 # Un widget de control deslizante de carrusel.
+  pull_to_refresh: ^2.0.0 # un widget proporcionado para el componente de desplazamiento de flutter, actualización desplegable y pull up load.support android e ios
+  easy_dynamic_theme: ^2.2.0
+  liquid_swipe: ^2.1.0
+  font_awesome_flutter: ^9.1.0 # El paquete Font Awesome Icon disponible como conjunto de Flutter Icons.
+  provider: ^5.0.0 # Un envoltorio alrededor de InheritedWidget para que sean más fáciles de usar y más reutilizable
+  shared_preferences: ^2.0.5 # Envuelve el almacenamiento persistente específico de la plataforma para datos simples
+  path_provider: ^2.0.1 # Un complemento de Flutter para encontruiuxlutterar ubicaciones de uso común en el sistema de archivos.
+  flutter_launcher_icons: ^0.9.0 # Una herramienta de línea de comandos que simplifica la tarea de actualizar el icono de inicio de la aplicación Flutter
+  animate_do: ^2.0.0 # Un paquete de animación inspirado en Animate.css , construido usando solo animaciones de Flutter
+  google_fonts: ^2.0.0 # El google_fontspaquete para Flutter te permite usar fácilmente cualquiera de las 977 fuentes
+  cached_network_image: ^3.0.0 # Una biblioteca de aleteo para mostrar imágenes de Internet y mantenerlas en el directorio de caché
+  package_info: ^2.0.0 # Este complemento de Flutter proporciona una API para consultar información sobre un paquete de aplicación
+  share: ^2.0.1 # Un complemento de Flutter para compartir contenido desde su aplicación Flutter a través del cuadro de diálogo para compartir de la plataforma
+  dots_indicator: ^2.0.0
+  url_launcher: ^6.0.4
+  lottie: ^1.0.1
+  dashed_circle: ^0.0.2
+  permission_handler: ^7.1.0
+  bottom_navy_bar: ^6.0.0
+  flutter_rating_bar: ^4.0.0
+  audioplayers: ^0.19.1
+  flutter_svg: ^0.22.0
+  external_path: ^1.0.1 # complemento de flutter mínimo para acceder a la ruta de almacenamiento externo
+  flutter_speed_dial: ^3.0.5 # Paquete Flutter para renderizar una marcación rápida de Material Design
+  carousel_slider: ^4.0.0-nullsafety.0 # Un widget de control deslizante de carrusel.
+  avatar_glow: ^2.0.1 #Este paquete Flutter proporciona un widget Avatar Glow con una animación brillante de fondo.
+  neon: ^0.1.0 # permite usar hermosos letreros de neón en tu aplicación.
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/ic_launcher.png"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+  - assets/
+  - assets/sound/
+  - assets/video/
+  - assets/images/
+  - assets/icons/
+  - assets/json/
+
+  # Include a single source code file:
+  - lib/src/ui/pages/page_inicio/
+  - lib/src/ui/pages/page_inicio/login/
+  - lib/src/ui/pages/page_inicio/introduccion/
+  - lib/src/ui/pages/pages_list/
+  - lib/src/ui/pages/pages_profile/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
