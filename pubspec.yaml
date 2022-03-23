@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 2.1.4+22
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -27,23 +27,23 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
 
   # Gestor de Estados
-  get: ^4.3.8 # GetX es una solución potente y extraligera para Flutter. Combina la gestión del estado de alto rendimiento, la inyección inteligente de dependencias y la gestión de rutas de forma rápida y práctica.
+  get: ^4.6.1 # GetX es una solución potente y extraligera para Flutter. Combina la gestión del estado de alto rendimiento, la inyección inteligente de dependencias y la gestión de rutas de forma rápida y práctica.
 
   # Firebase
-  firebase_core: ^1.1.0
-  firebase_auth: ^1.1.3
-  google_sign_in: ^5.0.2
-  firebase_analytics: ^8.0.3
-  cloud_firestore: ^2.0.0
-  firebase_storage: ^8.0.5
+  firebase_core: ^1.13.1
+  firebase_auth: ^3.3.11
+  google_sign_in: ^5.2.4
+  firebase_analytics: ^9.1.2
+  cloud_firestore: ^3.1.10
+  firebase_storage: ^10.2.9
   #Google
-  google_mobile_ads: ^0.13.4
+  google_mobile_ads: ^1.1.0
 
   #
-  flutter_bloc: ^7.0.0
+  flutter_bloc: ^8.0.1
   equatable: ^2.0.0
 
   # otros
@@ -51,9 +51,9 @@ dependencies:
   flutter_card_swipper: ^0.4.0 # Un widget de control deslizante de carrusel.
   pull_to_refresh: ^2.0.0 # un widget proporcionado para el componente de desplazamiento de flutter, actualización desplegable y pull up load.support android e ios
   easy_dynamic_theme: ^2.2.0
-  liquid_swipe: ^2.1.0
-  font_awesome_flutter: ^9.1.0 # El paquete Font Awesome Icon disponible como conjunto de Flutter Icons.
-  provider: ^5.0.0 # Un envoltorio alrededor de InheritedWidget para que sean más fáciles de usar y más reutilizable
+  liquid_swipe: ^2.1.1
+  font_awesome_flutter: ^10.0.0 # El paquete Font Awesome Icon disponible como conjunto de Flutter Icons.
+  provider: ^6.0.2 # Un envoltorio alrededor de InheritedWidget para que sean más fáciles de usar y más reutilizable
   shared_preferences: ^2.0.5 # Envuelve el almacenamiento persistente específico de la plataforma para datos simples
   path_provider: ^2.0.1 # Un complemento de Flutter para encontruiuxlutterar ubicaciones de uso común en el sistema de archivos.
   flutter_launcher_icons: ^0.9.0 # Una herramienta de línea de comandos que simplifica la tarea de actualizar el icono de inicio de la aplicación Flutter
@@ -64,15 +64,15 @@ dependencies:
   share: ^2.0.1 # Un complemento de Flutter para compartir contenido desde su aplicación Flutter a través del cuadro de diálogo para compartir de la plataforma
   dots_indicator: ^2.0.0
   url_launcher: ^6.0.4
-  lottie: ^1.0.1
+  lottie: ^1.2.2
   dashed_circle: ^0.0.2
-  permission_handler: ^7.1.0
+  permission_handler: ^9.2.0
   bottom_navy_bar: ^6.0.0
   flutter_rating_bar: ^4.0.0
-  audioplayers: ^0.19.1
-  flutter_svg: ^0.22.0
+  audioplayers: ^0.20.1
+  flutter_svg: ^1.0.3
   external_path: ^1.0.1 # complemento de flutter mínimo para acceder a la ruta de almacenamiento externo
-  flutter_speed_dial: ^3.0.5 # Paquete Flutter para renderizar una marcación rápida de Material Design
+  flutter_speed_dial: ^5.0.0+1 # Paquete Flutter para renderizar una marcación rápida de Material Design
   carousel_slider: ^4.0.0-nullsafety.0 # Un widget de control deslizante de carrusel.
   avatar_glow: ^2.0.1 #Este paquete Flutter proporciona un widget Avatar Glow con una animación brillante de fondo.
   neon: ^0.1.0 # permite usar hermosos letreros de neón en tu aplicación.
