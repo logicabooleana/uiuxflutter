@@ -56,52 +56,52 @@ class WidgetListTile extends StatelessWidget {
         }else if( http != "" ){
           launchURL(context,http);
         }},
-        leading: icono,
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment:MainAxisAlignment.start,
-                children: [
-                  Text(title, style: TextStyle(fontSize: 18.0,color: this.colorText)),
-                  Row(
+        leading: CircleAvatar(child: icono,backgroundColor: color.withOpacity(0.9)),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment:MainAxisAlignment.start,
+          children: [
+            Text(title, style: TextStyle(fontSize: 18.0,color: this.colorText)),
+            Row(
+              children: [
+                
+                this.nuevo?
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Row(
                     children: [
-                      
-                      this.nuevo?
-                      Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.radio_button_checked,size: 10.0,color:Colors.green),
-                            Padding(padding: const EdgeInsets.all(3.0),child: Text("Nuevo", style: TextStyle(fontSize: 10.0,color: Colors.green)))
-                          ],
-                        ),
-                      ):Container(),
-                      this.actualizado?
-                      Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.radio_button_checked,size: 10.0,color:Colors.orange),
-                            Padding(padding: const EdgeInsets.all(3.0),child: Text("Actualizado", style: TextStyle(fontSize: 10.0,color: Colors.orange)))
-                          ],
-                        ),
-                      ):Container(),
-                      this.animated?
-                      Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.radio_button_checked,size: 10.0,color:Colors.deepPurple[400]),
-                            Padding(padding: const EdgeInsets.all(3.0),child: Text("Animación", style: TextStyle(fontSize: 10.0,color: Colors.deepPurple[400])))
-                          ],
-                        ),
-                      ):Container(),
+                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.green),
+                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Nuevo", style: TextStyle(fontSize: 10.0,color: Colors.green)))
                     ],
                   ),
-                ],
-              ),
-              dense: false,
-              subtitle: subtitle!=""?Text(subtitle,style: TextStyle(color: this.colorText)):Container(),
-              trailing: iconLauncher(codeFilePath: codeFilePath),
+                ):Container(),
+                this.actualizado?
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.orange),
+                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Actualizado", style: TextStyle(fontSize: 10.0,color: Colors.orange)))
+                    ],
+                  ),
+                ):Container(),
+                this.animated?
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.deepPurple),
+                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Animación", style: TextStyle(fontSize: 10.0,color: Colors.deepPurple)))
+                    ],
+                  ),
+                ):Container(),
+              ],
+            ),
+          ],
+        ),
+        dense: false,
+        subtitle: subtitle!=""?Text(subtitle,style: TextStyle(color: this.colorText)):Container(),
+        trailing: iconLauncher(codeFilePath: codeFilePath),
     );
   }
   Widget iconLauncher( {required String codeFilePath } ){

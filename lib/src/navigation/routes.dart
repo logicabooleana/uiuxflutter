@@ -47,6 +47,8 @@ import 'package:desingapp/src/ui/profile_user.dart';
 import 'package:desingapp/src/ui/paquetes_list.dart';
 import 'package:desingapp/src/ui/info_app.dart';
 
+import '../ui/pages/pages_list/page_list_telegram.dart';
+
 class Routes {
   static const splash = '/';
   static const intro = '/intro';
@@ -110,6 +112,7 @@ class Routes {
       'Page_lista_ajustes': (BuildContext context) => PagelistaAjustes(),
       'Page_lista_planetas': (BuildContext context) => PageListaPlaneta(),
       'Page_lista_contact': (BuildContext context) => Pagelistacontact(),
+      'Page_list_telegram': (BuildContext context) => PagelistTelegram(),
 
       // Perfiles
       'page_profile_boutique': (BuildContext context) => PageProfileBoutique(),

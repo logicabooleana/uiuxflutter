@@ -246,6 +246,17 @@ Map categoryIntroduction={
       'color': Colors.red,
       'items': [
         {
+          'title': "Telegram", 
+          'subtitle':"",
+          'icon': Icon(Icons.telegram_rounded,size:iSizeIcon,color: getRandomColor() ), 
+          'color': Colors.lightBlue[300], 
+          'rute': "Page_list_telegram", 
+          'codeFilePath': "lib/src/ui/pages/pages_list/page_list_telegram.dart", 
+          'nameActivity': "Telegram", 
+          'url':'https://i.pinimg.com/originals/20/99/f2/2099f2dda704cb708fe20347afb964ba.jpg',
+          'nuevo':true ,'actualizado':false ,
+          },
+        {
           'title': "Motel", 
           'subtitle':"",
           'icon': Stack(
@@ -351,7 +362,7 @@ Map categoryIntroduction={
           'codeFilePath': "lib/src/ui/pages/pages_list/page_lista_instagram.dart", 
           'nameActivity': "inicio Instagram",
           'url':'https://www.trecebits.com/wp-content/uploads/2019/03/Instagram-down.jpg', 
-          'nuevo':false ,'actualizado':true,
+          'nuevo':false ,'actualizado':false,
           },  
         {
           'title': "Sistema solar", 
