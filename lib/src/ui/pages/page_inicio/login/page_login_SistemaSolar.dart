@@ -74,13 +74,22 @@ class _PageLoginSistemaSolarState extends State<PageLoginSistemaSolar>  {
                   VerticalSpacing(of: 50.0),
                   Tabs(isDartkTheme: isDartkTheme,press: (value)=>setState((){isDartkTheme=value==0?false:true;})),
                   VerticalSpacing(),
-                  Text("Bienvenida",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 30.0)),
-                  VerticalSpacing(of: 10.0),
-                  Text("Ingrese su información a continuación",style: TextStyle(color: Colors.white)),
-                  VerticalSpacing(of: 50.0),
-                  JelloIn(controller: ( controller ) => animationController = controller,child: !isPassword?RoundedTextField(initialValue:sUser,hintTextInterior: "ejemplo@gmail.com",hintText: "Usuario o E-mail"):RoundedTextField(initialValue:sPass,hintTextInterior: "*******",hintText: "Contaseña")),
-                  VerticalSpacing(),
-                  buttonRound(onPressed: () {setState(() {isPassword=!isPassword;});animationController.repeat();},text: "Iniciar sesion",colorButton: Colors.white10,colorText: Colors.white,colorBorder: Colors.white10),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 12),
+                    decoration: BoxDecoration(color: Colors.white24,borderRadius: BorderRadius.circular(12)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Bienvenida",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 30.0)),
+                        VerticalSpacing(of: 10.0),
+                        Text("Ingrese su información a continuación",style: TextStyle(color: Colors.white)),
+                        VerticalSpacing(of: 50.0),
+                        JelloIn(controller: ( controller ) => animationController = controller,child: !isPassword?RoundedTextField(initialValue:sUser,hintTextInterior: "ejemplo@gmail.com",hintText: "Usuario o E-mail"):RoundedTextField(initialValue:sPass,hintTextInterior: "*******",hintText: "Contaseña")),
+                        VerticalSpacing(),
+                        buttonRound(onPressed: () {setState(() {isPassword=!isPassword;});animationController.repeat();},text: "Iniciar sesion",colorButton: Colors.white10,colorText: Colors.white,colorBorder: Colors.white10),
+                      ],
+                    ),
+                  ),
                   Expanded(child: Container()),
                   Row(
                     children: [

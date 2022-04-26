@@ -39,11 +39,16 @@ class PagelistTelegram extends StatefulWidget {
 }
 
 class _PagelistTelegramState extends State<PagelistTelegram> {
+  // var
+  Color colorDivider = Colors.grey;
   bool _showFab = true;
   late Size size;
 
   @override
   Widget build(BuildContext context) {
+
+    // get values 
+    colorDivider = Theme.of(context).brightness==Brightness.dark?Colors.black26:Colors.grey.withOpacity(0.2);
     size = MediaQuery.of(context).size;
     const duration = Duration(milliseconds: 300);
 
@@ -64,24 +69,8 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
             /* CustomScrollView :Un ScrollView que crea efectos de desplazamiento personalizados usando astillas. */
             slivers: <Widget>[
               sliverAppBar(context: context, title: "Telegram"),
-              SliverToBoxAdapter(
-                child: Container(
-                  color: Colors.black.withOpacity(0.1),
-                  width: double.infinity,height: 300,
-                  child: Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Icon(Icons.telegram,size: 50),
-                        ),
-                        Text('Bienvenido a Telegram'),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              widgetWelcome(context: context),
+              SliverToBoxAdapter(child: Divider(thickness: 14,color: colorDivider,)),
               sliverList(lista_contacto),
             ],
           )),
@@ -92,7 +81,11 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
           duration: duration,
           opacity: _showFab ? 1 : 0,
           child: FloatingActionButton(
-            child: Icon(Icons.add),
+            backgroundColor: Colors.blue,
+            child: Icon(
+              Icons.edit,
+              color: Colors.white,
+            ),
             onPressed: () {},
           ),
         ),
@@ -106,14 +99,21 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
   SliverAppBar sliverAppBar(
       {required BuildContext context, required String title}) {
     return SliverAppBar(
-        primary:
-            true, // Si esta barra de aplicaciones se muestra en la parte superior de la pantalla */
-        pinned: true,
-        excludeHeaderSemantics: true,
-        title: Text(
-          title,
-          style: TextStyle(color: Colors.white),
-        ));
+      primary:
+          true, // Si esta barra de aplicaciones se muestra en la parte superior de la pantalla */
+      pinned: true,
+      excludeHeaderSemantics: true,
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.white),
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.search),
+        )
+      ],
+    );
   }
 
   // Una astilla que coloca múltiples hijos de caja en una matriz lineal a lo largo del eje principal
@@ -121,7 +121,24 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         // Para ello, se utiliza un delegado para crear elementos a medida que se desplazan por la pantalla
-        (context, index) => getItem(listNombres[index]),
+        (context, index) {
+          if (index == 0) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                  child: Text('Tus contactos de Telegram',
+                      style: TextStyle(fontSize: 16, color: Colors.blue)),
+                ),
+                getItem(listNombres[index]),
+              ],
+            );
+          }
+          return getItem(listNombres[index]);
+        },
         childCount: listNombres.length,
       ),
     );
@@ -131,30 +148,65 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
   Widget getItem(String title) {
     return InkWell(
       onTap: () {},
-      child: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(12.0),
-            child: ListTile(
-              // ListTile : Una única fila de altura fija que generalmente contiene texto, así como un icono inicial o final
-              leading: CircleAvatar(
-                // CircleAvatar :  Un círculo que representa a un usuario
-                radius: 24.0,
-                child: Text(
-                  title.substring(0, 1),
-                  style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              title: Text(title, style: TextStyle(fontSize: 18.0)),
+      child: Container(
+        padding: EdgeInsets.all(12.0),
+        child: ListTile(
+          // ListTile : Una única fila de altura fija que generalmente contiene texto, así como un icono inicial o final
+          leading: CircleAvatar(
+            // CircleAvatar :  Un círculo que representa a un usuario
+            radius: 24.0,
+            child: Text(
+              title.substring(0, 1),
+              style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
           ),
-          Divider(
-            height: 1.0,
-          )
-        ],
+          title: Text(title, style: TextStyle(fontSize: 18.0)),
+        ),
+      ),
+    );
+  }
+
+  Widget widgetWelcome({required BuildContext context}) {
+    return SliverToBoxAdapter(
+      child: Card(
+        margin:EdgeInsets.all(0) ,
+        child: Container(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          width: double.infinity,
+          height: 300,
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.telegram_sharp,
+                    size: 50,
+                    color: Colors.blue,
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(
+                    text: 'Bienvenido a Telegram\n\n',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text:
+                              'Envía mensajes tocando el botón del lápiz en la \n esquina inferior derecha.',
+                          style: Theme.of(context).textTheme.subtitle2),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

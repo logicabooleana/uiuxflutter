@@ -1,14 +1,12 @@
 // Copyright 2020 Logica Booleana Authors
 
 // Dependencias
-import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 // Los link de de las depedencias se pueden encontrar en "Más" => Dependencias */
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:desingapp/src/utils/widgets/widgets_utils_app.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/rendering.dart';
 import 'package:neon/neon.dart';
 
 // README
@@ -436,20 +434,18 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                 itemBuilder: (context, index, realIndex) {
                   return Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 100.0, left: 12.0, right: 12.0, top: 50),
+                        bottom: 12.0, left: 12.0, right: 12.0, top: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         // card
-                        Expanded(
-                            child: CardRoom(
-                                context: context, obj: listItemss[index])),
+                        CardRoom(context: context, obj: listItemss[index]),
                         // button
                         button(
                             padding: EdgeInsets.symmetric(
-                                vertical: 20.0, horizontal: 25.0),
-                            borderRadius: 25.0,
+                                vertical: 14.0, horizontal: 14.0),
+                            borderRadius: 30.0,
                             text: listItemss[index]["disponibilidad"]
                                 ? 'RESERVAR'
                                 : 'OCUPADA',
@@ -619,93 +615,93 @@ class CardRoom extends StatefulWidget {
 class _CardRoomState extends State<CardRoom> {
   @override
   Widget build(BuildContext context) {
-    Size sizeContext = MediaQuery.of(widget.context).size;
 
     return Container(
       width: double.infinity,
-      height: double.infinity,
+      height: 300,
       child: Card(
+        clipBehavior: Clip.antiAlias,
         elevation: 12.0,
         color: Colors.white38,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        child: Column(
+        child: Stack(fit: StackFit.expand,
           children: [
             // imagen con bordes redondeados
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: sizeContext.width * 0.7,
-                  height: sizeContext.height * 0.3,
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    elevation: 0.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child: CachedNetworkImage(
-                        fadeInDuration: Duration(milliseconds: 300),
-                        fit: BoxFit.cover,
-                        imageUrl: widget.obj["urlImage"],
-                        placeholder: (context, urlImage) =>
-                            Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, urlImage, error) =>
-                            Center(child: Container(color: Colors.grey[900]))),
+              child: CachedNetworkImage(
+                  fadeInDuration: Duration(milliseconds: 300),
+                  fit: BoxFit.cover,
+                  imageUrl: widget.obj["urlImage"],
+                  placeholder: (context, urlImage) =>
+                      Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, urlImage, error) =>
+                      Center(child: Container(color: Colors.grey[900]))),
+            ),
+            Column(
+              children: [
+                Expanded(child: Container()),
+                // cantidad y boton de 'me gusta'y el numero de la habitación
+                Container(
+                  width: double.infinity,
+                  margin:EdgeInsets.only(bottom: 12,right: 8,left: 8) ,
+                  decoration: BoxDecoration(
+                    color: Colors.white30,
+                    borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // tres CircleAvatar superpuestos
+                          Stack(
+                            alignment: AlignmentDirectional.centerStart,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16, top: 8.0),
+                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[300]),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8, top: 8.0),
+                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[400]),),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 14, top: 8.0),
+                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey)),
+                            ],
+                          ),
+                          // cantidad de ' me gusta'
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8.0, right: 12.0, top: 8.0),
+                            child: Text(
+                              'y a ${widget.obj["favorite"]} personas le gusto',
+                              style: const TextStyle(overflow: TextOverflow.ellipsis,
+                                  color: Colors.white, fontSize: 12.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                              onPressed: () => setState(() => widget.like = !widget.like ),
+                              icon: Icon( widget.like?Icons.favorite:Icons.favorite_border_outlined,size: 30.0,color: widget.like ? Colors.red : Colors.white)),
+                          Text(widget.obj["num"],
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ),
-            // cantidad y boton de 'me gusta'y el numero de la habitación
-            Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                            padding: EdgeInsets.all(12.0),
-                            onPressed: () => setState(() => widget.like = !widget.like ),
-                            icon: Icon( widget.like?Icons.favorite:Icons.favorite_border_outlined,size: 30.0,color: widget.like ? Colors.red : Colors.white)),
-                        // tres CircleAvatar superpuestos
-                        Stack(
-                          alignment: AlignmentDirectional.centerStart,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 16, top: 8.0),
-                              child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[300]),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8, top: 8.0),
-                              child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[400]),),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 14, top: 8.0),
-                              child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey)),
-                          ],
-                        ),
-                        // cantidad de ' me gusta'
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 8.0, right: 12.0, top: 8.0),
-                          child: Text(
-                            'y a ${widget.obj["favorite"]} personas le gusto',
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 12.0),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(widget.obj["num"],
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold)),
-                ),
               ],
-            )),
+            ),
           ],
         ),
       ),

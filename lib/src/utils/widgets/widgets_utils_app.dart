@@ -1,6 +1,5 @@
 import 'package:desingapp/src/utils/dynamicTheme_lb.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 
 class WidgetsUtilsApp extends StatelessWidget {

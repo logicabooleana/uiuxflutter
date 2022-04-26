@@ -254,7 +254,7 @@ Map categoryIntroduction={
           'codeFilePath': "lib/src/ui/pages/pages_list/page_list_telegram.dart", 
           'nameActivity': "Telegram", 
           'url':'https://i.pinimg.com/originals/20/99/f2/2099f2dda704cb708fe20347afb964ba.jpg',
-          'nuevo':true ,'actualizado':false ,
+          'nuevo':false ,'actualizado':true ,
           },
         {
           'title': "Motel", 
