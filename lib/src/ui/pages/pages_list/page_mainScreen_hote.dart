@@ -410,7 +410,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
             // texto que indica el nombre de la cátegoria
             Center(
                 child: Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -434,7 +434,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                 itemBuilder: (context, index, realIndex) {
                   return Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 12.0, left: 12.0, right: 12.0, top: 50),
+                        bottom: 0.0, left: 12.0, right: 12.0, top: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

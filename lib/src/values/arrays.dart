@@ -269,7 +269,7 @@ Map categoryIntroduction={
           'rute': "page_mainScreen_boutique", 
           'codeFilePath': "lib/src/ui/pages/pages_list/page_mainScreen_hote.dart", 
           'url':'https://i0.wp.com/www.saavedraonline.com.ar/wp-content/uploads/2015/10/albergue-puraciudad.jpg',
-          'nuevo':false ,'actualizado':false ,
+          'nuevo':false ,'actualizado':true ,
           },
         {
           'title': "Boutique", 
@@ -298,8 +298,8 @@ Map categoryIntroduction={
           'color': Colors.deepPurple, 
           'rute': "Page_lista_bank", 
           'codeFilePath': "lib/src/ui/pages/pages_list/page_lista_bank.dart", 
-          'url':'https://www.bankmagazine.com.ar/wp-content/uploads/2020/06/brubank-banco-digital-1024x576-1.png',
-          'nuevo':false ,'actualizado':false ,
+          'url':'https://i.ytimg.com/vi/dKYPM1oi3KE/maxresdefault.jpg',
+          'nuevo':false ,'actualizado':true ,
           },
         {
           'title': "Spotify", 
