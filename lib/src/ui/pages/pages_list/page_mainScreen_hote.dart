@@ -274,8 +274,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   child: Text(
                       "Nuestro Hotel les brinda el tiempo y las mejores condiciones en cuanto a estructura y servicio para que usted pueda disfrutar y pasar un buen momento. Habitaciones standard y Especiales.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16.0))),
+                      textAlign: TextAlign.center)),
               Expanded(
                 child: Center(
                   child: Column(
@@ -302,26 +301,19 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                               color: Colors.purple),
                         ],
                       ),
+                      Divider(),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Divider(),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text('TURNOS', style: TextStyle(fontSize: 18)),
-                            Text('Turno de 3hs de Domingos a Domingos',
-                                style: TextStyle(fontSize: 14)),
+                            Text('TURNOS', style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text('Turno de 3hs de Domingos a Domingos'),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Divider(),
-                      ),
+                      Divider(),
                       button(
                           text:
                               "${categories[1]['name']}  ${categories[1]['price']}",
@@ -488,13 +480,13 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
   /// WIDGETS COMPONENTS
   Widget button(
       {required String text,
-      double fontSize = 18.0,
+      double fontSize = 14.0,
       double borderRadius = 10.0,
       Color colorText = Colors.white,
       Color colorButton = Colors.purple,
       EdgeInsets? padding,
       required Function()? onPressed}) {
-    if (padding == null) padding = EdgeInsets.all(20.0);
+    if (padding == null) padding = EdgeInsets.all(12.0);
 
     return Padding(
       padding: padding,
