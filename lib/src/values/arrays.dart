@@ -246,6 +246,17 @@ Map categoryIntroduction={
       'color': Colors.red,
       'items': [
         {
+          'title': "Facebook", 
+          'subtitle':"",
+          'icon': Icon(Icons.facebook,size:iSizeIcon,color: getRandomColor() ), 
+          'color': Colors.blue, 
+          'rute': "page_home_facebook", 
+          'codeFilePath': "lib/src/ui/pages/pages_list/page_home_facebook.dart", 
+          'nameActivity': "Facebook", 
+          'url':'https://www.amatic.com.ec/wp-content/uploads/2017/01/azul-hd-papel-pintado-textura-fondos-para-el-415649.jpg',
+          'nuevo':true ,'actualizado':false ,
+          },
+        {
           'title': "Telegram", 
           'subtitle':"",
           'icon': Icon(Icons.telegram_rounded,size:iSizeIcon,color: getRandomColor() ), 

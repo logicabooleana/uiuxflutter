@@ -78,9 +78,11 @@ class PagelistaGamerState extends State<PagelistaGamer> {
   /// WIDGETS VIEWS
   AppBar appBar(){
 
+    // val
     bool isDark = Theme.of(context).brightness==Brightness.dark?true:false;
     Color colorText1Dark = Colors.white;Color colorText2Dark = colorCategory;
     Color colorText1light = Colors.black;Color colorText2light = Colors.orange;
+    
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
