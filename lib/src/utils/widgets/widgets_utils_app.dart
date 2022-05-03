@@ -12,10 +12,13 @@ class WidgetsUtilsApp extends StatelessWidget {
       color = Theme.of(context).brightness == Brightness.dark
           ? Colors.white
           : Colors.black;
+
     return IconButton(
+      padding: EdgeInsets.zero,
         icon: Icon(
             Theme.of(context).brightness == Brightness.light? Icons.brightness_high: Icons.brightness_3,
-            color: color),
+            color: color,
+            ),
         onPressed: ThemeService().switchTheme );
   }
 
