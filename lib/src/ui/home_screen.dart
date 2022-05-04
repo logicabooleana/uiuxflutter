@@ -145,9 +145,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 items: valuesApp.categoryIntroduction["items"],
                 context: context),
             title: valuesApp.categoryIntroduction["tab_title"],
-            news: getNews(context: context,items: valuesApp.categoryIntroduction["items"]),
-            description:
-                "La incorporación es una experiencia virtual de unboxing que ayuda a los usuarios a comenzar con una aplicación",
+            news: getNews(
+                context: context,
+                items: valuesApp.categoryIntroduction["items"]),
+            description: valuesApp.categoryIntroduction["description"],
           ),
           TileExpanded(
             context: context,
@@ -156,9 +157,9 @@ class _HomeScreenState extends State<HomeScreen> {
             list: getListWidgets(
                 items: valuesApp.categoryLogin["items"], context: context),
             title: valuesApp.categoryLogin["tab_title"],
-            news: getNews(context: context, items: valuesApp.categoryLogin["items"]),
-            description:
-                "Para garantizar que la experiencia de un usuarios sea perfecta desde el principio, el diseño de las pantallas de inicio de sesión y registro debe ser lo más intuitivas posible",
+            news: getNews(
+                context: context, items: valuesApp.categoryLogin["items"]),
+            description: valuesApp.categoryLogin["description"],
           ),
           TileExpanded(
             context: context,
@@ -168,9 +169,9 @@ class _HomeScreenState extends State<HomeScreen> {
             list: getListWidgets(
                 items: valuesApp.categoryMainSceem["items"], context: context),
             title: valuesApp.categoryMainSceem["tab_title"],
-            news: getNews(context: context, items: valuesApp.categoryMainSceem["items"]),
-            description:
-                "La pantalla principal es donde se enfocan el contenido y las opciones que queremos que el usuario conozca. Se elijen diseños que sean visualmente atractivos y apropiados para los tipos de datos y el tamaño de la pantalla",
+            news: getNews(
+                context: context, items: valuesApp.categoryMainSceem["items"]),
+            description: valuesApp.categoryMainSceem["description"],
           ),
           TileExpanded(
             context: context,
@@ -179,10 +180,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 getNotifyCategory(items: valuesApp.categoryProfile["items"]),
             list: getListWidgets(
                 items: valuesApp.categoryProfile["items"], context: context),
-            news: getNews(context: context, items: valuesApp.categoryProfile["items"]),
+            news: getNews(
+                context: context, items: valuesApp.categoryProfile["items"]),
             title: valuesApp.categoryProfile["tab_title"],
-            description:
-                "Diseños de perfiles, estas pantallas se utilizan para conocer más o interactuar con un producto, persona o lugar, etc ... aquí mostramos toda la información completa y opciones al usuario",
+            description: valuesApp.categoryProfile["description"],
           ),
           Padding(
               padding: const EdgeInsets.fromLTRB(12.0, 30.0, 12.0, 12.0),
@@ -290,9 +291,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int getNews({required List items, required BuildContext context}) {
     int news = 0;
-    for (var i = 0; i < items.length; i++)
-      if (items[i]["nuevo"]) news++;
-    
+    for (var i = 0; i < items.length; i++) if (items[i]["nuevo"]) news++;
+
     return news;
   }
 
@@ -328,7 +328,6 @@ class CarruselCardNews extends StatelessWidget {
     if (lista.length == 0) {
       return Container();
     }
-
     return CarouselSlider.builder(
       options: CarouselOptions(
           enableInfiniteScroll: lista.length == 1 ? false : true,
@@ -359,7 +358,7 @@ class CarruselCardNews extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(20.0),
         ),
         elevation: 8.0,
         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -435,14 +434,14 @@ class CarruselCardNews extends StatelessWidget {
                                     codeFilePath: item["codeFilePath"])));
                       },
                       child: Container(
-                          color: item["color"].withOpacity(0.8),
+                          color: Colors.black26,
                           padding: EdgeInsets.all(12.0),
                           child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "ver código",
+                                  "Ver código",
                                   style: TextStyle(
                                       fontSize: 16.0, color: Colors.white),
                                 ),
@@ -450,7 +449,7 @@ class CarruselCardNews extends StatelessWidget {
                                   width: 5.0,
                                 ),
                                 Icon(
-                                  Icons.arrow_forward,
+                                  Icons.visibility_outlined,
                                   size: 18.0,
                                   color: Colors.white,
                                 )
@@ -501,8 +500,8 @@ class _TileExpandedState extends State<TileExpanded> {
         });
       },
       child: AnimatedContainer(
-        margin:
-            EdgeInsets.symmetric(horizontal: isExpanded ? 20 : 0, vertical: 12),
+        margin: EdgeInsets.symmetric(
+            horizontal: isExpanded ? 20 : 12, vertical: 12),
         padding: EdgeInsets.all(20),
         //height: isExpanded ? 70 : 330,
         curve: Curves.fastLinearToSlowEaseIn,
@@ -516,13 +515,13 @@ class _TileExpandedState extends State<TileExpanded> {
             ],
             color: widget.materialColor[400]!.withOpacity(0.7),
             borderRadius:
-                BorderRadius.all(Radius.circular(isExpanded ? 20 : 0))),
+                BorderRadius.all(Radius.circular(isExpanded ? 20 : 20))),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // titulo 
+                // titulo
                 Text(widget.title,
                     style: TextStyle(
                       color: Colors.white,
@@ -530,17 +529,21 @@ class _TileExpandedState extends State<TileExpanded> {
                       fontWeight: FontWeight.w400,
                     )),
                 // iconos con contador de nuevos items
-                widget.news==0?Container():Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CircleAvatar(
-                    maxRadius: 14.0,
-                    backgroundColor: Colors.white,
-                    child: Text(
-                      widget.news.toString(),
-                      style: TextStyle(color: Colors.red[300],fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                widget.news == 0
+                    ? Container()
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(
+                          maxRadius: 14.0,
+                          backgroundColor: Colors.white,
+                          child: Text(
+                            widget.news.toString(),
+                            style: TextStyle(
+                                color: Colors.red[300],
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                 Expanded(child: Container()),
                 Icon(
                     isExpanded

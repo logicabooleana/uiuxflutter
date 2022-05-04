@@ -66,41 +66,29 @@ class WidgetListTile extends StatelessWidget {
               children: [
                 
                 this.nuevo?
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.green),
-                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Nuevo", style: TextStyle(fontSize: 10.0,color: Colors.green)))
-                    ],
-                  ),
-                ):Container(),
+                Chip(
+                  backgroundColor: Colors.green[400],
+                  padding: const EdgeInsets.all(0),
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 12,vertical:0),
+                  label:Text('Nuevo',style: TextStyle(color: Colors.white,fontSize:12))):Container(),
                 this.actualizado?
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.orange),
-                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Actualizado", style: TextStyle(fontSize: 10.0,color: Colors.orange)))
-                    ],
-                  ),
-                ):Container(),
+                Chip(
+                  backgroundColor: Colors.orange[400],
+                  padding: const EdgeInsets.all(0),
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 12,vertical:0),
+                  label:Text('Actualizado',style: TextStyle(color: Colors.white,fontSize:12))):Container(),
                 this.animated?
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.radio_button_checked,size: 10.0,color:Colors.deepPurple),
-                      Padding(padding: const EdgeInsets.all(3.0),child: Text("Animación", style: TextStyle(fontSize: 10.0,color: Colors.deepPurple)))
-                    ],
-                  ),
-                ):Container(),
+                Chip(
+                  backgroundColor: Colors.deepPurple[400],
+                  padding: const EdgeInsets.all(0),
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 12,vertical:0),
+                  label:Text('Animación',style: TextStyle(color: Colors.white,fontSize:12))):Container(),
               ],
             ),
           ],
         ),
         dense: false,
-        subtitle: subtitle!=""?Text(subtitle,style: TextStyle(color: this.colorText)):Container(),
+        subtitle: subtitle!=""?Text(subtitle,style: TextStyle(color: this.colorText)):null,
         trailing: iconLauncher(codeFilePath: codeFilePath),
     );
   }

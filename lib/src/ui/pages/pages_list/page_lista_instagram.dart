@@ -3,7 +3,6 @@
 // Dependencias
 import 'dart:async';
 import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 // Los link de de las depedencias se pueden encontrar en "Más" => Dependencias
 import 'package:cached_network_image/cached_network_image.dart';

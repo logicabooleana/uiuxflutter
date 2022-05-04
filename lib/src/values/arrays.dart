@@ -80,7 +80,7 @@ Map categoryIntroduction={
     };
   Map categoryLogin={
       'tab_title': "iniciar sesión", 
-      'description':'',
+      'description':'Para garantizar que la experiencia de un usuarios sea perfecta desde el principio, el diseño de las pantallas de inicio de sesión y registro debe ser lo más intuitivas posible',
       'color': Colors.purple,
       'items': [
         {
@@ -411,7 +411,7 @@ Map categoryIntroduction={
     };
   Map categoryProfile={
       'tab_title': "Perfiles", 
-      'description':'',
+      'description':'Diseños de perfiles, estas pantallas se utilizan para conocer más o interactuar con un producto, persona o lugar, etc ... aquí mostramos toda la información completa y opciones al usuario',
       'color': Colors.orange,
       'items': [
         {

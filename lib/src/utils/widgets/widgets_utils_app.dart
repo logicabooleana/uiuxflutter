@@ -13,13 +13,21 @@ class WidgetsUtilsApp extends StatelessWidget {
           ? Colors.white
           : Colors.black;
 
-    return IconButton(
-      padding: EdgeInsets.zero,
-        icon: Icon(
-            Theme.of(context).brightness == Brightness.light? Icons.brightness_high: Icons.brightness_3,
-            color: color,
-            ),
-        onPressed: ThemeService().switchTheme );
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: CircleAvatar(
+        radius: 20,
+        backgroundColor: Colors.black12,
+        child: IconButton(
+          splashRadius: 20,
+          padding: EdgeInsets.zero,
+            icon: Icon(
+                Theme.of(context).brightness == Brightness.light? Icons.brightness_high: Icons.brightness_3,
+                color: color,
+                ),
+            onPressed: ThemeService().switchTheme ),
+      ),
+    );
   }
 
   @override

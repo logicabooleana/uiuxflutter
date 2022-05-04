@@ -301,9 +301,10 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                               color: Colors.purple),
                         ],
                       ),
-                      Divider(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        color: Colors.white10.withOpacity(0.05),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -313,52 +314,66 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                           ],
                         ),
                       ),
-                      Divider(),
-                      button(
-                          text:
-                              "${categories[1]['name']}  ${categories[1]['price']}",
-                          colorButton: categories[1]['color'],
-                          colorText: Colors.white,
-                          onPressed: () {
-                            setState(() {
-                              if (_pageController.hasClients) {
-                                _pageController.animateToPage(1,
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    curve: Curves.linear);
-                              }
-                            });
-                          }),
-                      button(
-                          text:
-                              "${categories[2]['name']}  ${categories[2]['price']}",
-                          colorButton: categories[2]['color'],
-                          colorText: Colors.white,
-                          onPressed: () {
-                            setState(() {
-                              if (_pageController.hasClients) {
-                                _pageController.animateToPage(2,
-                                    duration:
-                                        const Duration(milliseconds: 1400),
-                                    curve: Curves.linear);
-                              }
-                            });
-                          }),
-                      button(
-                          text:
-                              "${categories[3]['name']}  ${categories[3]['price']}",
-                          colorButton: categories[3]['color'],
-                          colorText: Colors.white,
-                          onPressed: () {
-                            setState(() {
-                              if (_pageController.hasClients) {
-                                _pageController.animateToPage(3,
-                                    duration:
-                                        const Duration(milliseconds: 1700),
-                                    curve: Curves.linear);
-                              }
-                            });
-                          }),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              width: double.infinity,
+                              child: button(
+                                  text:
+                                      "${categories[1]['name']}  ${categories[1]['price']}",
+                                  colorButton: categories[1]['color'],
+                                  colorText: Colors.white,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_pageController.hasClients) {
+                                        _pageController.animateToPage(1,
+                                            duration:
+                                                const Duration(milliseconds: 1000),
+                                            curve: Curves.linear);
+                                      }
+                                    });
+                                  }),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: button(
+                                  text:
+                                      "${categories[2]['name']}  ${categories[2]['price']}",
+                                  colorButton: categories[2]['color'],
+                                  colorText: Colors.white,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_pageController.hasClients) {
+                                        _pageController.animateToPage(2,
+                                            duration:
+                                                const Duration(milliseconds: 1400),
+                                            curve: Curves.linear);
+                                      }
+                                    });
+                                  }),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: button(
+                                  text:
+                                      "${categories[3]['name']}  ${categories[3]['price']}",
+                                  colorButton: categories[3]['color'],
+                                  colorText: Colors.white,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_pageController.hasClients) {
+                                        _pageController.animateToPage(3,
+                                            duration:
+                                                const Duration(milliseconds: 1700),
+                                            curve: Curves.linear);
+                                      }
+                                    });
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -619,16 +634,14 @@ class _CardRoomState extends State<CardRoom> {
         child: Stack(fit: StackFit.expand,
           children: [
             // imagen con bordes redondeados
-            Expanded(
-              child: CachedNetworkImage(
-                  fadeInDuration: Duration(milliseconds: 300),
-                  fit: BoxFit.cover,
-                  imageUrl: widget.obj["urlImage"],
-                  placeholder: (context, urlImage) =>
-                      Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, urlImage, error) =>
-                      Center(child: Container(color: Colors.grey[900]))),
-            ),
+            CachedNetworkImage(
+                fadeInDuration: Duration(milliseconds: 300),
+                fit: BoxFit.cover,
+                imageUrl: widget.obj["urlImage"],
+                placeholder: (context, urlImage) =>
+                    Center(child: CircularProgressIndicator()),
+                errorWidget: (context, urlImage, error) =>
+                    Center(child: Container(color: Colors.grey[900]))),
             Column(
               children: [
                 Expanded(child: Container()),

@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../../../utils/widgets/widgets_utils_app.dart';
 
 class PageHomeFacebook extends StatelessWidget {
@@ -18,7 +18,7 @@ class PageHomeFacebook extends StatelessWidget {
       'avatarUrl':
           'https://www.revistaanfibia.com/wp-content/uploads/2021/03/El-libertario-peinado-por-el-mercado_01Port.jpg',
       'storyUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/0/0f/ObeliscoBA2017.jpg'
+          'https://www.cronista.com/files/image/98/98404/5ff13786a81bd_671_377!.jpg'
     },
     {
       'name': 'Jimena Aranda',
@@ -46,7 +46,7 @@ class PageHomeFacebook extends StatelessWidget {
           'https://cdn.autonomous.ai/static/upload/images/new_post/which-desk-setup-is-best-for-a-developer-379-1602744788208.jpg'
     },
   ];
-  final List listaPersonas = [
+  final List publications = [
     {
       "nombre": "Javier Milei",
       "usuario": "javiermilei",
@@ -135,18 +135,21 @@ class PageHomeFacebook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // values
+    ThemeData themeData = ThemeData(
+        brightness: Theme.of(context).brightness,
+        scaffoldBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBarTheme: AppBarTheme(
+            actionsIconTheme: IconThemeData(color: Colors.black),
+            iconTheme: IconThemeData(color: Colors.black),
+            elevation: 0,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor),
+        hintColor: Theme.of(context).brightness == Brightness.light
+            ? Colors.black45
+            : Colors.white38);
+
     return Theme(
-      data: ThemeData(
-          brightness: Theme.of(context).brightness,
-          scaffoldBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          appBarTheme: AppBarTheme(
-              actionsIconTheme: IconThemeData(color: Colors.black),
-              iconTheme: IconThemeData(color: Colors.black),
-              elevation: 0,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor),
-          hintColor: Theme.of(context).brightness == Brightness.light
-              ? Colors.black45
-              : Colors.white38),
+      data: themeData,
       child: Scaffold(
         appBar: appBar(context: context),
         body: body(context: context),
@@ -160,46 +163,57 @@ class PageHomeFacebook extends StatelessWidget {
       leading: Icon(Icons.facebook, color: Colors.blue, size: 40),
       actions: [
         WidgetsUtilsApp().buttonThemeBrightness(context: context),
-        IconButton(
-            icon: CircleAvatar(
-                radius: 40,
-                child: Icon(Icons.search, size: 20, color: Colors.black),
-                backgroundColor: Colors.black12),
-            onPressed: () {}),
-        IconButton(
-            icon: CircleAvatar(
-                radius: 40,
-                child: Icon(Icons.person, size: 20, color: Colors.black),
-                backgroundColor: Colors.black12),
-            onPressed: () {}),
+        CircleAvatar(
+          radius: 20,
+          backgroundColor: Colors.black12,
+          child: IconButton(
+              splashRadius: 20,
+              icon: Icon(Icons.search,
+                  size: 24, color: Theme.of(context).iconTheme.color),
+              onPressed: () {}),
+        ),
+        SizedBox(width: 5),
+        CircleAvatar(
+          radius: 20,
+          backgroundColor: Colors.black12,
+          child: IconButton(
+              splashRadius: 20,
+              icon: Icon(Icons.person,
+                  size: 24, color: Theme.of(context).iconTheme.color),
+              onPressed: () {}),
+        ),
+        SizedBox(width: 12),
       ],
     );
   }
 
   Widget body({required BuildContext context}) {
+    // wigets
+    Widget widgets = Column(
+      children: [
+        Container(padding: EdgeInsets.only(top: 20, right: 12, left: 12),child: widgetTextField()),
+        Padding(padding: EdgeInsets.only(top: 12, right: 12, left: 12),child: widgetButtons()),
+        Container(padding: EdgeInsets.only(top: 12),child: widgetStory()),
+      ]
+    );
+
     return Stack(
       children: [
-        ListView(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 20, right: 12, left: 12),
-              child: widgetTextField(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 12, right: 12, left: 12),
-              child: widgetButtons(),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 12),
-              child: widgetStory(),
-            ),
-            Divider(thickness: 8, color: Colors.black12),
-            Publication(context: context, obj: listaPersonas[0]),
-            Publication(context: context, obj: listaPersonas[1]),
-            Publication(context: context, obj: listaPersonas[2]),
-            Publication(context: context, obj: listaPersonas[3]),
-          ],
+        // publications
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: publications.length,
+          itemBuilder: (context, index) => index == 0
+              ? Column(
+                children: [
+                  widgets,
+                  Divider(thickness: 8, color: Colors.black12),
+                  Publication(context: context, obj: publications[index]),
+                ],
+              )
+              : Publication(context: context, obj: publications[index]),
         ),
+        // floating browser
         Column(children: [
           Expanded(child: Container()),
           BottomNavigationBar(colorAccent: Colors.blue)
@@ -488,9 +502,8 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
   List<IconData> listOfIcons = [
     Icons.home_rounded,
     Icons.play_circle_filled_outlined,
-    Icons.shopping_cart,
     Icons.notifications,
-    Icons.person_rounded,
+    Icons.grid_view_rounded,
   ];
 
   @override
@@ -545,9 +558,8 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
               ),
               Icon(listOfIcons[index],
                   size: _width * .076,
-                  color: index == currentIndex
-                      ? widget.colorAccent
-                      : colorIcon),
+                  color:
+                      index == currentIndex ? widget.colorAccent : colorIcon),
               SizedBox(height: _width * .01),
             ],
           ),
@@ -582,52 +594,57 @@ class _PublicationState extends State<Publication> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: <Widget>[
-                      // avatar of user
-                      Padding(
-                          padding: EdgeInsets.all(3.0),
-                          child: CircleAvatar(
-                              backgroundColor: Theme.of(context).canvasColor,
-                              radius: 24.0,
-                              backgroundImage:
-                                  NetworkImage(widget.obj["url_foto_perfil"]))),
-                      SizedBox(width: 10.0),
-                      // name and time
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+          padding: const EdgeInsets.only(bottom: 12, left: 12, top: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: <Widget>[
+                  // avatar of user
+                  CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: widget.obj["url_foto_perfil"],
+                    placeholder: (context, url) => CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      radius: 24.0,
+                    ),
+                    imageBuilder: (context, image) => CircleAvatar(
+                      backgroundImage: image,
+                      radius: 24.0,
+                    ),
+                    errorWidget: (context, url, error) => CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      radius: 24.0,
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  // name and time
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(widget.obj["nombre"],
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      Row(
                         children: [
-                          Text(widget.obj["nombre"],
+                          Text("24 m",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16)),
-                          Row(
-                            children: [
-                              Text("24 m",
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 12.0)),
-                              SizedBox(width: 5),
-                              Icon(Icons.people, size: 14, color: Colors.grey),
-                            ],
-                          )
+                                  color: Colors.grey, fontSize: 12.0)),
+                          SizedBox(width: 5),
+                          Icon(Icons.people, size: 14, color: Colors.grey),
                         ],
                       )
                     ],
                   ),
-                  // comment of user
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Text('Que lindo'),
-                  ),
+                  Expanded(child: Container()),
+                  IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
                 ],
               ),
-              IconButton(icon: Icon(Icons.more_vert), onPressed: null)
+              // comment of user
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Text('Que lindo'),
+              ),
             ],
           ),
         ),
