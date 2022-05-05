@@ -180,7 +180,7 @@ Map categoryIntroduction={
           'codeFilePath': "lib/src/ui/pages/page_inicio/login/page_login_SistemaSolar.dart", 
           'nameActivity': "Autenticación", 
           'url':'https://cdn.dribbble.com/users/1235373/screenshots/3429206/galaxy_m4dian-01-02.jpg',
-          'nuevo':false ,'actualizado':false ,'animated':true ,
+          'nuevo':false ,'actualizado':true ,'animated':true ,
           },
           {
           'title': "Instragram", 
@@ -300,7 +300,7 @@ Map categoryIntroduction={
           'rute': "Page_lista_guideAr", 
           'codeFilePath': "lib/src/ui/pages/pages_list/page_list_guideAr.dart", 
           'url':'https://cdnuploads.aa.com.tr/uploads/Contents/2019/07/29/thumbs_b_c_ce532ee4ac257cc2b93fc0e387ffa5ee.jpg',
-          'nuevo':false ,'actualizado':false ,
+          'nuevo':false ,'actualizado':true ,
           },
         {
           'title': "Brubank", 
@@ -320,7 +320,7 @@ Map categoryIntroduction={
           'rute': "Page_lista_spotify", 
           'codeFilePath': "lib/src/ui/pages/pages_list/page_lista_spotify.dart", 
           'url':'https://media.pasionmovil.com/2021/03/spotify-ios-android-home-screen-update.jpg',
-          'nuevo':false ,'actualizado':false ,'animated':true ,
+          'nuevo':false ,'actualizado':true ,'animated':true ,
           },
         {
           'title': "GameCores", 

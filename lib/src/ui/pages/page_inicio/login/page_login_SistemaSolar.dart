@@ -31,7 +31,7 @@ class _PageLoginSistemaSolarState extends State<PageLoginSistemaSolar>  {
   void initState() {
     super.initState();
   }
-   @override
+  @override
   void dispose() {
     if(animationController!=null)animationController.dispose();
     super.dispose();
@@ -69,34 +69,37 @@ class _PageLoginSistemaSolarState extends State<PageLoginSistemaSolar>  {
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: SafeArea(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   VerticalSpacing(of: 50.0),
                   Tabs(isDartkTheme: isDartkTheme,press: (value)=>setState((){isDartkTheme=value==0?false:true;})),
-                  VerticalSpacing(),
-                  Container(
+                  Expanded(child: Container()),
+                  Text("Hola !",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 30.0)),
+                  Expanded(child: Container()),
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 400),
+                    decoration: BoxDecoration(color: isDartkTheme?Colors.white24:Colors.black26,borderRadius: BorderRadius.circular(12)),
                     padding: EdgeInsets.symmetric(horizontal: 20,vertical: 12),
-                    decoration: BoxDecoration(color: Colors.white24,borderRadius: BorderRadius.circular(12)),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Bienvenida",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 30.0)),
                         VerticalSpacing(of: 10.0),
-                        Text("Ingrese su información a continuación",style: TextStyle(color: Colors.white)),
-                        VerticalSpacing(of: 50.0),
+                        Text("Ingrese su información a continuación",style: TextStyle(color: Colors.white,fontSize:16 )),
+                        VerticalSpacing(of: 24.0),
                         JelloIn(controller: ( controller ) => animationController = controller,child: !isPassword?RoundedTextField(initialValue:sUser,hintTextInterior: "ejemplo@gmail.com",hintText: "Usuario o E-mail"):RoundedTextField(initialValue:sPass,hintTextInterior: "*******",hintText: "Contaseña")),
                         VerticalSpacing(),
-                        buttonRound(onPressed: () {setState(() {isPassword=!isPassword;});animationController.repeat();},text: "Iniciar sesion",colorButton: Colors.white10,colorText: Colors.white,colorBorder: Colors.white10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(flex: 2,child: buttonRound(onPressed: () {setState(() {isPassword=!isPassword;});animationController.repeat();},text: "Iniciar sesion",colorButton: Colors.white10,colorText: Colors.white,colorBorder: Colors.white10)),
+                            SizedBox(width: 12),
+                            Expanded(child: buttonRound(onPressed:null,text: "Omitir",colorButton: Colors.white10,colorText: Colors.white,colorBorder: Colors.white10)),
+                          ],
+                        ),
                       ],
                     ),
                   ),
-                  Expanded(child: Container()),
-                  Row(
-                    children: [
-                      Expanded(child:Container(),),
-                      Padding(padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical:8.0),child: RaisedButton(padding:EdgeInsets.all(20.0),elevation: 1.0,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),side: BorderSide(color:Colors.white54)),onPressed: () {},color:Colors.white12,textColor:Colors.white54,child: Text("Omitir".toUpperCase(),style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold)))),
-                    ],
-                  ),
+                  VerticalSpacing(of: 50.0),
                 ],
               ),
             ),

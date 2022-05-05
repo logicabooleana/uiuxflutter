@@ -31,7 +31,14 @@ class PageLoginGuideAr extends StatelessWidget {
       children: <Widget>[
         _colorFondo(),
         _backgroundimage(urlImage: "https://i.pinimg.com/736x/56/b6/e0/56b6e02dc4ebda2e8ffce5570f5b7ad4.jpg"),
-        _textos(),
+        Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter,
+                stops: [0.0, 0.9],
+                colors: [Colors.black54, Colors.transparent])),
+            child: _textos()),
       ],
     );
   }
@@ -54,13 +61,22 @@ class PageLoginGuideAr extends StatelessWidget {
     );
   }
   Widget _textos() {
-    final estiloTexto = TextStyle(color: Colors.white, fontSize: 50.0);
+    
     return SafeArea(
       child: Column(
         children: <Widget>[
+          SizedBox(height: 150.0),
+          Text.rich(
+          TextSpan(
+            text: 'Hola,', 
+            style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white),
+            children: <TextSpan>[
+              TextSpan(text: ' bienvenido!\n', style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white,fontSize: 24)),
+              TextSpan(text: 'Esto es Argentina', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 38)),
+            ],
+          ),
+        ),
           Expanded(child: Container() ),
-          Text('Argentina', style: estiloTexto),
-          SizedBox(height: 50.0),
           Icon(Icons.keyboard_arrow_down, size: 70.0, color: Colors.white)
         ],
       ),
@@ -89,7 +105,7 @@ class PageLoginGuideAr extends StatelessWidget {
                 padding: const EdgeInsets.all(100.0),
                 child: ElevatedButton(
                   onPressed: (){}, 
-                  child: Text("Iniciar",style: TextStyle(fontSize: 20.0,color: Colors.black,fontWeight:FontWeight.bold )),
+                  child: Text("Iniciar Guía",style: TextStyle(fontSize: 20.0,color: Colors.black,fontWeight:FontWeight.bold )),
                   style:ElevatedButton.styleFrom(padding: EdgeInsets.all(15.0),primary: Colors.white,onPrimary:Colors.black,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0),side: BorderSide(color: Colors.white))),
                 ),
               ),

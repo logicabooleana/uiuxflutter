@@ -45,7 +45,7 @@ class PagelistaSpotifyState extends State<PagelistaSpotify> with SingleTickerPro
     {"iconData":null,"titulo":"Los éxistos de reggeaton","url":"https://direct.rhapsody.com/imageserver/images/alb.389886666/600x600.jpg"},
     {"iconData":null,"titulo":"Electronica & Dance","url":"https://dhfsk7jl2g0km.cloudfront.net/playlist-09tdi9JkYgC7DP0XYBl4Az.jpeg"},
   ];
-  MaterialColor  colorDegradado=Colors.purple;
+  Color  colorDegradado=Colors.grey;
   Color colorFondo=Colors.black;
   late Size screenSize; // variable para los pixeles del ancho y alto de la pantalla
 
@@ -91,7 +91,7 @@ class PagelistaSpotifyState extends State<PagelistaSpotify> with SingleTickerPro
     // var 
     List <Widget>list = [
       Container(
-        decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomCenter,stops: [0.0,0.6],colors: [colorDegradado.withOpacity(0.7),colorFondo])),
+        decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomCenter,stops: [0.0,1.0],colors: [colorDegradado.withOpacity(0.1),colorFondo])),
         child: listGridButtons(),
       ),
       listHorizontalCards(titulo: "Escuchado recientemente",listPeliculas:listaEscuchadosRecientes),

@@ -116,8 +116,7 @@ class PageListGuideAr extends StatelessWidget {
           scrollDirection: Axis.vertical,
           itemCount: listLocations.length,
           itemBuilder: (context, index) {
-            return _createLocationView(
-                context: context, objects: listLocations, position: index);
+            return _createLocationView(context: context, objects: listLocations, position: index);
           },
         ),
         _createAppBarButton(
@@ -129,7 +128,6 @@ class PageListGuideAr extends StatelessWidget {
   Widget _createAppBarButton({
     required BuildContext context,
     required Brightness brightness,
-    double sizeIcon = 25.0,
   }) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -179,6 +177,13 @@ class PageListGuideAr extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(width: double.infinity,height: 60),
+            Column(
+              children: [
+                position == 0 ? Container() : Icon(Icons.keyboard_arrow_up_sharp),
+                Text(titleAnterio, textAlign: TextAlign.center),
+              ],
+            ),
             Center(
                 child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -242,21 +247,12 @@ class PageListGuideAr extends StatelessWidget {
                 },
               ),
             ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 75, vertical: 30),
-          child: Text(titleAnterio, textAlign: TextAlign.center),
-        ),
-        Column(
-          children: [
-            position == 0 ? Container() : Icon(Icons.keyboard_arrow_up_sharp),
-            Expanded(
-              child: Container(),
+            Column(
+              children: [
+                Text(titleSiguiente, textAlign: TextAlign.center),
+                Icon(Icons.keyboard_arrow_down),
+              ],
             ),
-            //Expanded(child: Center(child: Row(children: [Icon(Icons.keyboard_arrow_left),Expanded(child: Container()),Icon(Icons.keyboard_arrow_right),]))),
-            Text(titleSiguiente, textAlign: TextAlign.center),
-            Icon(Icons.keyboard_arrow_down),
           ],
         ),
       ],
