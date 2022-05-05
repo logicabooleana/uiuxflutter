@@ -45,23 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     /* get values */
-    colorFond = Colors.transparent;
+    colorFond = Theme.of(context).scaffoldBackgroundColor;
     screenSize = MediaQuery.of(context).size;
     versioApp();
 
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: Theme.of(context).brightness == Brightness.dark
-                  ? [Colors.purple.shade900, Colors.deepPurple.shade900]
-                  : [Colors.grey.shade100, Colors.deepPurple.shade50])),
-      child: Scaffold(
-        backgroundColor: colorFond,
-        appBar: appbar(context: context),
-        body: body(context: context),
-      ),
+    return Scaffold(
+      backgroundColor: colorFond,
+      appBar: appbar(context: context),
+      body: body(context: context),
     );
   }
 

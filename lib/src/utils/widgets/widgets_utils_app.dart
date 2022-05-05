@@ -25,7 +25,7 @@ class WidgetsUtilsApp extends StatelessWidget {
                 Theme.of(context).brightness == Brightness.light? Icons.brightness_high: Icons.brightness_3,
                 color: color,
                 ),
-            onPressed: ThemeService().switchTheme ),
+            onPressed: ThemeService.switchTheme ),
       ),
     );
   }

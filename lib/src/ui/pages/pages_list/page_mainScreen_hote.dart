@@ -157,6 +157,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
 
   @override
   Widget build(BuildContext context) {
+    // values
     dynamic color1 = Theme.of(context).brightness == Brightness.dark
         ? Colors.grey[900]
         : colorPrimary;
@@ -187,7 +188,9 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
 
   PreferredSizeWidget appBar({required BuildContext context}) {
     return AppBar(
-      backgroundColor: Colors.black12,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+        ? Colors.grey[900]
+        : Colors.purple,
       leading: Container(),
       leadingWidth: 0,
       title: Row(
@@ -309,7 +312,8 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text('TURNOS', style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text('TURNOS',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text('Turno de 3hs de Domingos a Domingos'),
                           ],
                         ),
@@ -317,59 +321,65 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                       Expanded(
                         child: Column(
                           children: [
-                            SizedBox(
-                              width: double.infinity,
-                              child: button(
-                                  text:
-                                      "${categories[1]['name']}  ${categories[1]['price']}",
-                                  colorButton: categories[1]['color'],
-                                  colorText: Colors.white,
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_pageController.hasClients) {
-                                        _pageController.animateToPage(1,
-                                            duration:
-                                                const Duration(milliseconds: 1000),
-                                            curve: Curves.linear);
-                                      }
-                                    });
-                                  }),
+                            Expanded(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: button(
+                                    text:
+                                        "${categories[1]['name']}  ${categories[1]['price']}",
+                                    colorButton: categories[1]['color'],
+                                    colorText: Colors.white,
+                                    onPressed: () {
+                                      setState(() {
+                                        if (_pageController.hasClients) {
+                                          _pageController.animateToPage(1,
+                                              duration: const Duration(
+                                                  milliseconds: 1000),
+                                              curve: Curves.linear);
+                                        }
+                                      });
+                                    }),
+                              ),
                             ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: button(
-                                  text:
-                                      "${categories[2]['name']}  ${categories[2]['price']}",
-                                  colorButton: categories[2]['color'],
-                                  colorText: Colors.white,
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_pageController.hasClients) {
-                                        _pageController.animateToPage(2,
-                                            duration:
-                                                const Duration(milliseconds: 1400),
-                                            curve: Curves.linear);
-                                      }
-                                    });
-                                  }),
+                            Expanded(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: button(
+                                    text:
+                                        "${categories[2]['name']}  ${categories[2]['price']}",
+                                    colorButton: categories[2]['color'],
+                                    colorText: Colors.white,
+                                    onPressed: () {
+                                      setState(() {
+                                        if (_pageController.hasClients) {
+                                          _pageController.animateToPage(2,
+                                              duration: const Duration(
+                                                  milliseconds: 1400),
+                                              curve: Curves.linear);
+                                        }
+                                      });
+                                    }),
+                              ),
                             ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: button(
-                                  text:
-                                      "${categories[3]['name']}  ${categories[3]['price']}",
-                                  colorButton: categories[3]['color'],
-                                  colorText: Colors.white,
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_pageController.hasClients) {
-                                        _pageController.animateToPage(3,
-                                            duration:
-                                                const Duration(milliseconds: 1700),
-                                            curve: Curves.linear);
-                                      }
-                                    });
-                                  }),
+                            Expanded(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: button(
+                                    text:
+                                        "${categories[3]['name']}  ${categories[3]['price']}",
+                                    colorButton: categories[3]['color'],
+                                    colorText: Colors.white,
+                                    onPressed: () {
+                                      setState(() {
+                                        if (_pageController.hasClients) {
+                                          _pageController.animateToPage(3,
+                                              duration: const Duration(
+                                                  milliseconds: 1700),
+                                              curve: Curves.linear);
+                                        }
+                                      });
+                                    }),
+                              ),
                             ),
                           ],
                         ),
@@ -618,11 +628,9 @@ class CardRoom extends StatefulWidget {
   _CardRoomState createState() => _CardRoomState();
 }
 
-
 class _CardRoomState extends State<CardRoom> {
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: double.infinity,
       height: 300,
@@ -631,7 +639,8 @@ class _CardRoomState extends State<CardRoom> {
         elevation: 12.0,
         color: Colors.white38,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        child: Stack(fit: StackFit.expand,
+        child: Stack(
+          fit: StackFit.expand,
           children: [
             // imagen con bordes redondeados
             CachedNetworkImage(
@@ -648,16 +657,17 @@ class _CardRoomState extends State<CardRoom> {
                 // cantidad y boton de 'me gusta'y el numero de la habitación
                 Container(
                   width: double.infinity,
-                  margin:EdgeInsets.only(bottom: 12,right: 8,left: 8) ,
+                  margin: EdgeInsets.only(bottom: 12, right: 8, left: 8),
                   decoration: BoxDecoration(
-                    color: Colors.white30,
-                    borderRadius: BorderRadius.all(Radius.circular(20))
-                  ),
+                      color: Colors.white30,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           // tres CircleAvatar superpuestos
@@ -665,15 +675,28 @@ class _CardRoomState extends State<CardRoom> {
                             alignment: AlignmentDirectional.centerStart,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 16, top: 8.0),
-                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[300]),
+                                padding:
+                                    const EdgeInsets.only(left: 16, top: 8.0),
+                                child: CircleAvatar(
+                                    maxRadius: 10.0,
+                                    minRadius: 10.0,
+                                    backgroundColor: Colors.grey[300]),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 8, top: 8.0),
-                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey[400]),),
+                                padding:
+                                    const EdgeInsets.only(left: 8, top: 8.0),
+                                child: CircleAvatar(
+                                    maxRadius: 10.0,
+                                    minRadius: 10.0,
+                                    backgroundColor: Colors.grey[400]),
+                              ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 14, top: 8.0),
-                                child: CircleAvatar(maxRadius: 10.0,minRadius: 10.0,backgroundColor: Colors.grey)),
+                                  padding: const EdgeInsets.only(
+                                      right: 14, top: 8.0),
+                                  child: CircleAvatar(
+                                      maxRadius: 10.0,
+                                      minRadius: 10.0,
+                                      backgroundColor: Colors.grey)),
                             ],
                           ),
                           // cantidad de ' me gusta'
@@ -682,18 +705,28 @@ class _CardRoomState extends State<CardRoom> {
                                 left: 8.0, right: 12.0, top: 8.0),
                             child: Text(
                               'y a ${widget.obj["favorite"]} personas le gusto',
-                              style: const TextStyle(overflow: TextOverflow.ellipsis,
-                                  color: Colors.white, fontSize: 12.0),
+                              style: const TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  color: Colors.white,
+                                  fontSize: 12.0),
                             ),
                           ),
                         ],
                       ),
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                              onPressed: () => setState(() => widget.like = !widget.like ),
-                              icon: Icon( widget.like?Icons.favorite:Icons.favorite_border_outlined,size: 30.0,color: widget.like ? Colors.red : Colors.white)),
+                              onPressed: () =>
+                                  setState(() => widget.like = !widget.like),
+                              icon: Icon(
+                                  widget.like
+                                      ? Icons.favorite
+                                      : Icons.favorite_border_outlined,
+                                  size: 30.0,
+                                  color:
+                                      widget.like ? Colors.red : Colors.white)),
                           Text(widget.obj["num"],
                               textAlign: TextAlign.center,
                               style: TextStyle(

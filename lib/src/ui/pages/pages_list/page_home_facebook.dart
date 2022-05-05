@@ -189,13 +189,15 @@ class PageHomeFacebook extends StatelessWidget {
 
   Widget body({required BuildContext context}) {
     // wigets
-    Widget widgets = Column(
-      children: [
-        Container(padding: EdgeInsets.only(top: 20, right: 12, left: 12),child: widgetTextField()),
-        Padding(padding: EdgeInsets.only(top: 12, right: 12, left: 12),child: widgetButtons()),
-        Container(padding: EdgeInsets.only(top: 12),child: widgetStory()),
-      ]
-    );
+    Widget widgets = Column(children: [
+      Container(
+          padding: EdgeInsets.only(top: 20, right: 12, left: 12),
+          child: widgetTextField()),
+      Padding(
+          padding: EdgeInsets.only(top: 12, right: 12, left: 12),
+          child: widgetButtons()),
+      Container(padding: EdgeInsets.only(top: 12), child: widgetStory()),
+    ]);
 
     return Stack(
       children: [
@@ -205,12 +207,12 @@ class PageHomeFacebook extends StatelessWidget {
           itemCount: publications.length,
           itemBuilder: (context, index) => index == 0
               ? Column(
-                children: [
-                  widgets,
-                  Divider(thickness: 8, color: Colors.black12),
-                  Publication(context: context, obj: publications[index]),
-                ],
-              )
+                  children: [
+                    widgets,
+                    Divider(thickness: 8, color: Colors.black12),
+                    Publication(context: context, obj: publications[index]),
+                  ],
+                )
               : Publication(context: context, obj: publications[index]),
         ),
         // floating browser
@@ -312,7 +314,6 @@ class PageHomeFacebook extends StatelessWidget {
             itemBuilder: (context, index) {
               if (index == 0) {
                 return Row(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
                     cardHistoryAdd(),
                     cardHistory(value: stories[index]),
@@ -360,24 +361,22 @@ class PageHomeFacebook extends StatelessWidget {
                 child: Stack(
                   alignment: AlignmentDirectional.topCenter,
                   children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 18),
-                        height: double.infinity,
-                        width: double.infinity,
-                        color: Colors.blue,
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 5, left: 7, right: 7, top: 14),
-                            child: Text(
-                              'Crear historia',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
+                    Container(
+                      margin: EdgeInsets.only(top: 18),
+                      height: double.infinity,
+                      width: double.infinity,
+                      color: Colors.blue,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              bottom: 5, left: 7, right: 7, top: 14),
+                          child: Text(
+                            'Crear historia',
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
@@ -395,7 +394,7 @@ class PageHomeFacebook extends StatelessWidget {
                           size: 18,
                         ),
                       ),
-                    ),
+                    ), 
                   ],
                 ),
               ),
@@ -435,21 +434,19 @@ class PageHomeFacebook extends StatelessWidget {
                 child: Stack(
                   alignment: AlignmentDirectional.topCenter,
                   children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 18),
-                        height: double.infinity,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white10,
-                            Colors.white70,
-                          ],
-                        )),
-                      ),
+                    Container(
+                      margin: EdgeInsets.only(top: 18),
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.white10,
+                          Colors.white70,
+                        ],
+                      )),
                     ),
                     Column(
                       children: [

@@ -8,20 +8,6 @@ import 'package:get/get.dart';
 import 'utils/dynamicTheme_lb.dart';
 
 final _navigatorKey = GlobalKey<NavigatorState>();
-var lightThemeData = new ThemeData(
-  canvasColor: Colors.white,
-  primaryColor: Colors.blue,
-  textTheme: new TextTheme(button: TextStyle(color: Colors.white70)),
-  brightness: Brightness.light,
-  accentColor: Colors.blue,
-);
-
-var darkThemeData = ThemeData(
-    canvasColor: Colors.black,
-    primaryColor: Colors.blue,
-    textTheme: new TextTheme(button: TextStyle(color: Colors.black54)),
-    brightness: Brightness.dark,
-    accentColor: Colors.blue);
 
 class MyApp extends StatelessWidget {
 
@@ -48,7 +34,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: _navigatorKey,
             title: 'UIUX Flutter',
             debugShowCheckedModeBanner: false,
-            darkTheme: Themes.dark,
+            darkTheme: ThemesDataApp.dark,
             themeMode: ThemeService().theme, // add this
             routes: Routes.listRoutes(),
             onGenerateRoute: Routes.routes,
