@@ -37,7 +37,7 @@ import 'package:desingapp/src/ui/pages/pages_profile/page_profile_instagram.dart
 import 'package:desingapp/src/ui/pages/pages_profile/page_profile_netflix.dart';
 import 'package:desingapp/src/ui/pages/pages_profile/page_profile_pedidoYa.dart';
 import 'package:desingapp/src/ui/pages/pages_profile/page_profile_productoMercadoLibre.dart';
-import 'package:desingapp/src/ui/pages/pages_profile/page_profile_seguir.dart';
+import 'package:desingapp/src/ui/pages/pages_profile/page_profile_facebook.dart';
 import 'package:desingapp/src/ui/pages/pages_profile/page_profile_spotify.dart';
 import 'package:flutter/material.dart';
 import 'package:desingapp/src/ui/home_screen.dart';
@@ -125,7 +125,7 @@ class Routes {
       'page_profile_productoMercadoLibre': (BuildContext context) => PageProfileProductoMercadoLibre(),
       'page_profile_instagram': (BuildContext context) => PageProfileInstagram(),
       'page_profile_4': (BuildContext context) => PageProfileColapse(),
-      'page_profile_2': (BuildContext context) => PageProfileSeguir(),
+      'page_profile_facebook': (BuildContext context) => PageProfileFacebook(),
       'page_profile_guideAr': (BuildContext context) => PageProfileGuideAr(),
     };
   }

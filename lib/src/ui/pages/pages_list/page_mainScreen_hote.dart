@@ -225,8 +225,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
       ),
       centerTitle: true,
       actions: [
-        WidgetsUtilsApp()
-            .buttonThemeBrightness(context: context, color: Colors.white),
+        WidgetsUtilsApp().buttonThemeBrightness(context: context, color: Colors.white),
       ],
     );
   }

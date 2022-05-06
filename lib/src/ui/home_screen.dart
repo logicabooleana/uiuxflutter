@@ -333,8 +333,9 @@ class CarruselCardNews extends StatelessWidget {
     );
   }
 
-  Widget cardPublicidad(
-      {required BuildContext context, required dynamic item}) {
+  Widget cardPublicidad({required BuildContext context, required dynamic item}) {
+
+
     String texto = "";
     Color color = Colors.green;
     if (item["nuevo"] == true) {
@@ -348,9 +349,7 @@ class CarruselCardNews extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         elevation: 8.0,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: InkWell(
@@ -365,8 +364,7 @@ class CarruselCardNews extends StatelessWidget {
               item["url"] != null
                   ? item["url"] != ""
                       ? BackdropFilter(
-                          filter:
-                              new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                          filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                           child: CachedNetworkImage(
                               fadeInDuration: Duration(milliseconds: 200),
                               fit: BoxFit.cover,
@@ -401,16 +399,30 @@ class CarruselCardNews extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  child: item["icon"]),
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: item["icon"]),
+                              ),
                             ),
-                            Text(item["title"],
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(item["title"],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                item["category"]==''?Container():Text(item["category"],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.white)),
+                              ],
+                            ),
                           ],
                         ),
                       ],
