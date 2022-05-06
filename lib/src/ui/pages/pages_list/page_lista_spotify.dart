@@ -57,50 +57,57 @@ class PagelistaSpotifyState extends State<PagelistaSpotify> with SingleTickerPro
     colorFondo=Theme.of(context).brightness==Brightness.dark?Colors.black:Theme.of(context).canvasColor; /* Establece el color de fondo de la iterface grafica */
 
     return Scaffold(
-      backgroundColor:  colorFondo,
       body: body(),
-      bottomNavigationBar:  bottomNavigationBar(context: context),
     );
   }
   // WIDGETS VIEWS
   Widget bottomNavigationBar({required BuildContext context}){
-    return Column(
-      mainAxisSize: MainAxisSize.min,crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        ListTileMusic(),
-        Divider(height: 1.0,color: Colors.black26),
-        BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Theme.of(context).brightness==Brightness.dark?Colors.grey[900]:Colors.white,
-          selectedItemColor: Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black,
-          unselectedItemColor: Theme.of(context).brightness==Brightness.dark?Colors.white.withOpacity(.60):Colors.black.withOpacity(.60),
-          selectedFontSize: 12,unselectedFontSize: 11,
-          onTap: (value) {},
-          items: [
-            BottomNavigationBarItem(label: 'Inicio',icon: Icon(Icons.home),),
-            BottomNavigationBarItem(label: 'Buscar',icon: Icon(Icons.search),),
-            BottomNavigationBarItem(label: 'Tu biblioteca',icon: Icon(Icons.view_carousel),),
-            BottomNavigationBarItem(label: 'Premiun',icon: FaIcon(FontAwesomeIcons.spotify)),
-          ],
-        ),
-      ],
+    return Container(
+      color: Theme.of(context).brightness==Brightness.dark?Colors.grey[900]:Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ListTileMusic(),
+          Divider(height: 1.0,color: Colors.black26),
+          BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Theme.of(context).brightness==Brightness.dark?Colors.grey[900]:Colors.white,
+            selectedItemColor: Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black,
+            unselectedItemColor: Theme.of(context).brightness==Brightness.dark?Colors.white.withOpacity(.60):Colors.black.withOpacity(.60),
+            selectedFontSize: 12,unselectedFontSize: 11,
+            onTap: (value) {},
+            items: [
+              BottomNavigationBarItem(label: 'Inicio',icon: Icon(Icons.home),),
+              BottomNavigationBarItem(label: 'Buscar',icon: Icon(Icons.search),),
+              BottomNavigationBarItem(label: 'Tu biblioteca',icon: Icon(Icons.view_carousel),),
+              BottomNavigationBarItem(label: 'Premiun',icon: FaIcon(FontAwesomeIcons.spotify)),
+            ],
+          ),
+        ],
+      ),
     );
   }
   Widget body(){
 
     // var 
     List <Widget>list = [
-      Container(
-        decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomCenter,stops: [0.0,1.0],colors: [colorDegradado.withOpacity(0.1),colorFondo])),
-        child: listGridButtons(),
-      ),
+      listGridButtons(),
       listHorizontalCards(titulo: "Escuchado recientemente",listPeliculas:listaEscuchadosRecientes),
       listHorizontalCardsGrande(titulo:"Recomendaciones para ti",listPeliculas:listaRecomendadosParaTi),
       listHorizontalCards(titulo:"Hechos para ti",listPeliculas:listaHechosParaTi),
       listHorizontalCards(titulo:"Verano 2021",listPeliculas:listaEscuchadosRecientes),
     ];
 
-    return ListView(children: list);
+    return Container(
+      decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomCenter,stops: [0.0,0.4],colors: [colorDegradado.withOpacity(0.1),colorFondo])),
+        
+      child: Column(
+        children: [
+          Expanded(child: ListView(children: list)),
+          bottomNavigationBar(context: context),
+        ],
+      ),
+    );
   }
   // WIDGETS COMPONENTS
   Widget listGridButtons(){
@@ -114,7 +121,7 @@ class PagelistaSpotifyState extends State<PagelistaSpotify> with SingleTickerPro
         crossAxisAlignment:CrossAxisAlignment.start ,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom:12.0,top:24.0,left: 12.0,right: 12.0),
+            padding: const EdgeInsets.only(bottom:12.0,top:0.0,left: 12.0,right: 12.0),
             child: Row(
               children: [
                 Text("Buenas noches",style: TextStyle(fontSize: 24.0,fontWeight:FontWeight.bold,color: Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black45),),

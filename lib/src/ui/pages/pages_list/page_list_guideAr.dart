@@ -3,8 +3,6 @@
 // Dependencias
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// Los link de de las depedencias se pueden encontrar en "Más" => Dependencias
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -21,12 +19,12 @@ class PageListGuideAr extends StatelessWidget {
         },
         {
           "urlImage":
-              "https://www.elportalinmobiliario.com.mx/cnt-articulos/2020/07/156970.jpg",
+              "https://www.buenosaires.gob.ar/sites/gcaba/files/field/image/39968172_2103632506313958_3813927686082920448_o.jpg",
           "description": "La Boca",
           "location": "Ciudad Autónoma de Buenos Aires",
         },
         {
-          "urlImage": "https://mapio.net/images-p/1172789.jpg",
+          "urlImage": "https://www.gba.gob.ar/sites/default/files/hidraulica/novedades/imagenes/2020-04-21%20Relevamiento%20en%20la%20Presa%20Roggero_0.jpg",
           "description": "Presa Ingeniero Carlos F. Roggero",
           "location":
               "Provincia de Buenos Aires, dividida en 	Moreno, Marcos Paz, Merlo y General Rodríguez",
@@ -94,7 +92,7 @@ class PageListGuideAr extends StatelessWidget {
     );
   }
 
-  /// WIDGETS VIEWS
+  // WIDGETS VIEWS
   PreferredSizeWidget appbar({required BuildContext context}) {
     // no necesita una AppBar, solo aplicar color a la barra de estado del sistema
     Color colorAppBar = Theme.of(context).brightness == Brightness.dark
@@ -124,7 +122,7 @@ class PageListGuideAr extends StatelessWidget {
       ],
     );
   }
-
+  // WIDGETS COMPONENTS
   Widget _createAppBarButton({
     required BuildContext context,
     required Brightness brightness,
@@ -184,67 +182,68 @@ class PageListGuideAr extends StatelessWidget {
                 Text(titleAnterio, textAlign: TextAlign.center),
               ],
             ),
-            Center(
-                child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(obj["title"],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 24.0, fontWeight: FontWeight.bold)),
-                        Text(obj["description"],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20.0)),
-                      ],
-                    ))),
-            Container(
-              padding: const EdgeInsets.only(bottom: 50.0),
-              child: CarouselSlider.builder(
-                options: CarouselOptions(
-                    height: 400,
-                    enableInfiniteScroll: listItemss.length == 1 ? false : true,
-                    autoPlay: listItemss.length == 1 ? false : true),
-                itemCount: listItemss.length,
-                itemBuilder: (context, index, realIndex) {
-                  return Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Text(
-                                  listItemss[index]["description"],
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            )),
-                        Expanded(
-                            child: imageFondo(
-                                urlImage: listItemss[index]["urlImage"],
-                                sigmaYXBlur: 0)),
-                        Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12.0),
-                            child: Text(
-                              listItemss[index]["location"],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(obj["title"],
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 12.0, fontWeight: FontWeight.bold),
-                            )),
-                      ],
-                    ),
-                  );
-                },
+                                  fontSize: 24.0, fontWeight: FontWeight.bold)),
+                          Text(obj["description"],
+                              textAlign: TextAlign.center,maxLines: 3,overflow:TextOverflow.ellipsis ,
+                              style: TextStyle(fontSize: 20.0)),
+                        ],
+                      )),
+                  CarouselSlider.builder(
+                    options: CarouselOptions(
+                        enableInfiniteScroll: listItemss.length == 1 ? false : true,
+                        autoPlay: listItemss.length == 1 ? false : true),
+                    itemCount: listItemss.length,
+                    itemBuilder: (context, index, realIndex) {
+                      return Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      listItemss[index]["description"],
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                )),
+                            Expanded(
+                                child: imageFondo(
+                                    urlImage: listItemss[index]["urlImage"],
+                                    sigmaYXBlur: 0)),
+                            Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 12.0),
+                                child: Text(
+                                  listItemss[index]["location"],
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 12.0, fontWeight: FontWeight.bold),
+                                )),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
             Column(
