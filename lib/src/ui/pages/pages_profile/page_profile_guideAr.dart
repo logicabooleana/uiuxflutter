@@ -6,11 +6,12 @@ import 'package:flutter/services.dart';
 // Los link de de las depedencias se pueden encontrar en "Más" => Dependencias */
 import 'package:cached_network_image/cached_network_image.dart';
 
+// ignore: must_be_immutable
 class PageProfileGuideAr extends StatelessWidget {
 
   // var
   late Size screenSize;
-  final estiloTitulo    = TextStyle( fontSize: 30.0, fontWeight: FontWeight.bold );
+  final estiloTitulo    = TextStyle( fontSize: 30.0, fontWeight: FontWeight.bold,color: Colors.white );
   final List listPhotosUrl =[
     "https://s1.wklcdn.com/image_36/1080019/8696283/5120587Master.jpg",
     "https://mapio.net/images-p/1172789.jpg",
@@ -94,7 +95,7 @@ class PageProfileGuideAr extends StatelessWidget {
                         children: [
                           clip(text: pointStart,backgroundColor: Colors.amber.withOpacity(0.1),colorIcon:Colors.amber,colorText: Colors.amber,iconData: Icons.star,iconVisibility: true),
                           Padding(padding: const EdgeInsets.all(8.0),child: Text(name, style: estiloTitulo )),
-                          Padding(padding: const EdgeInsets.all(12.0),child: Text(description,textAlign:TextAlign.center)),
+                          Padding(padding: const EdgeInsets.all(12.0),child: Opacity(opacity: 0.6,child: Text(description,textAlign:TextAlign.center))),
                           _createActions(),
                         ],
                       ),
@@ -140,7 +141,7 @@ class PageProfileGuideAr extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Text(title,style: TextStyle(fontSize: 30.0),textAlign:TextAlign.center),
+                  child: Text(title,style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),textAlign:TextAlign.center),
                 ),
                 text0!=""?_createText(reverse: false,text:text0):Container(),
                 listPhotos.length!=0?_createlistViewCardsHorizontalPhotos(reverse: false,listPhotos: listPhotos,widthCard: 300.0,heightCard: 200.0):Container(),
@@ -190,7 +191,9 @@ class PageProfileGuideAr extends StatelessWidget {
   Widget _createText({bool reverse=false,required String text}) {
     return Padding(
       padding: EdgeInsets.only(bottom: 12.0,top: 12.0,left: 40.0,right: 40.0),
-      child: Text(text,textAlign: TextAlign.justify,style: TextStyle(fontSize: 18.0),overflow: TextOverflow.clip,),
+      child: Opacity(
+        opacity: 0.5,
+        child: Text(text,textAlign: TextAlign.justify,style: TextStyle(fontSize: 18.0),overflow: TextOverflow.ellipsis,maxLines: 5,)),
     );
   }
   Widget _createButtonAcctions({required IconData icon,required String texto,required MaterialColor color} ) {

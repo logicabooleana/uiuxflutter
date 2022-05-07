@@ -46,7 +46,7 @@ Map categoryIntroduction={
       'color': Colors.blue,
       'items': [
         {
-          'title': "Brubank", 
+          'title': "Brubanc", 
           'subtitle':"Banca movíl",
           'icon': Icon(Icons.atm,size: iSizeIcon,color: getRandomColor() ), 
           'color': Colors.deepPurple, 
@@ -112,7 +112,7 @@ Map categoryIntroduction={
           },
         {
           'category':"login",
-          'title': "BruBank", 
+          'title': "BruBanc", 
           'subtitle':"Banca móvil",
           'icon':Icon(Icons.atm, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.deepPurple, 
@@ -123,7 +123,7 @@ Map categoryIntroduction={
           },
         {
           'category':"login",
-          'title': "Spotify", 
+          'title': "Spotifi", 
           'subtitle':"Plataforma de musica por striming",
           'icon':FaIcon(FontAwesomeIcons.spotify, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.greenAccent[400], 
@@ -134,7 +134,7 @@ Map categoryIntroduction={
           },
         {
           'category':"login",
-          'title': "Pedido Ya", 
+          'title': "Pedido Ahora", 
           'subtitle':"",
           'icon':FaIcon(Icons.fastfood, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red[300], 
@@ -145,7 +145,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-            'title': "Snapchat", 
+            'title': "Snopchat", 
             'subtitle':"",
             'icon':FaIcon(FontAwesomeIcons.snapchat, size: iSizeIcon,color: getRandomColor()),
             'color': Colors.purple[300], 
@@ -157,7 +157,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-            'title': "Mercado libre", 
+            'title': "Mercado livre", 
             'subtitle':"",
             'icon':FaIcon(Icons.shopping_basket, size: iSizeIcon,color: getRandomColor()),
             'color': Colors.yellow[300], 
@@ -169,11 +169,11 @@ Map categoryIntroduction={
           },
         {
           'category':"login",
-          'title': "Netflix", 
+          'title': "Netflik", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.neos, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.purple[300], 
-          'rute': "page_login_netflix", 
+          'rute': "page_login_netflik", 
           'codeFilePath': "lib/src/ui/pages/page_inicio/login/page_login_netflix.dart", 
           'nameActivity': "Login Netflix", 
           'url':'https://elandroidelibre.elespanol.com/wp-content/uploads/2019/10/Netflix-en-Mate-30-Pro.jpg',
@@ -193,7 +193,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-          'title': "Instragram", 
+          'title': "Instagran", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.instagram, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.purple[300], 
@@ -205,7 +205,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-            'title': "Facebook", 
+            'title': "Facebooc", 
             'subtitle':"",
             'icon':FaIcon(FontAwesomeIcons.facebook, size: iSizeIcon,color: getRandomColor()),
             'color': Colors.purple[300], 
@@ -217,7 +217,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-          'title': "Twitter", 
+          'title': "Twittir", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.twitter, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.purple[300], 
@@ -229,7 +229,7 @@ Map categoryIntroduction={
           },
           {
             'category':"login",
-          'title': "Dribbbble", 
+          'title': "Drible", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.dribbble, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.purple[300], 
@@ -261,7 +261,7 @@ Map categoryIntroduction={
       'items': [
         {
           'category':"home",
-          'title': "Facebook", 
+          'title': "Facebooc", 
           'subtitle':"",
           'icon': Icon(Icons.facebook,size:iSizeIcon,color: getRandomColor() ), 
           'color': Colors.red, 
@@ -273,7 +273,7 @@ Map categoryIntroduction={
           },
         {
           'category':"home",
-          'title': "Telegram", 
+          'title': "Telegran", 
           'subtitle':"",
           'icon': Icon(Icons.telegram_rounded,size:iSizeIcon,color: getRandomColor() ), 
           'color': Colors.red, 
@@ -323,7 +323,7 @@ Map categoryIntroduction={
           },
         {
           'category':"home",
-          'title': "Brubank", 
+          'title': "Brubanc", 
           'subtitle':"",
           'icon':Icon(Icons.atm, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -334,7 +334,7 @@ Map categoryIntroduction={
           },
         {
           'category':"home",
-          'title': "Spotify", 
+          'title': "Spotifi", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.spotify, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -356,7 +356,7 @@ Map categoryIntroduction={
           },
         {
           'category':"home",
-          'title': "Netflix ", 
+          'title': "Netflik ", 
           'subtitle':"",
           'icon':FaIcon(FontAwesomeIcons.neos, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -367,7 +367,7 @@ Map categoryIntroduction={
           },
         {
           'category':"home",
-          'title': "Mercado libre", 
+          'title': "Mercado livre", 
           'subtitle':"",
           'icon': FaIcon(Icons.shopping_basket, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -379,7 +379,7 @@ Map categoryIntroduction={
           },  
         {
           'category':"home",
-          'title': "Pedido Ya", 
+          'title': "Pedido Ahora", 
           'subtitle':"",
           'icon': FaIcon(Icons.fastfood, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -391,7 +391,7 @@ Map categoryIntroduction={
           }, 
         {
           'category':"home",
-          'title': "Instagram", 
+          'title': "Instagran", 
           'subtitle':"",
           'icon': FaIcon(FontAwesomeIcons.instagram, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red, 
@@ -467,7 +467,7 @@ Map categoryIntroduction={
           },
         {
           'category':"profile",
-          'title': "Brubank", 
+          'title': "Brubanc", 
           'subtitle':"Banca movíl",
           'icon':Icon(Icons.atm, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.deepPurple, 
@@ -478,7 +478,7 @@ Map categoryIntroduction={
           },
         {
           'category':"profile",
-          'title': "Spotify", 
+          'title': "Spotifi", 
           'subtitle':"play",
           'icon':FaIcon(FontAwesomeIcons.spotify, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.green, 
@@ -489,7 +489,7 @@ Map categoryIntroduction={
           },
         {
           'category':"profile",
-          'title': "Netflix ", 
+          'title': "Netflik", 
           'subtitle':"Información de la pelicula",
           'icon':FaIcon(FontAwesomeIcons.neos, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.red[300], 
@@ -501,7 +501,7 @@ Map categoryIntroduction={
           }, 
         {
           'category':"profile",
-          'title': "Pedido Ya", 
+          'title': "Pedido Ahora", 
           'subtitle':"Información y productos de la tienda",
           'icon': FaIcon(Icons.fastfood, size: iSizeIcon,color: getRandomColor()),
           'color': Colors.purple[300], 
@@ -512,7 +512,7 @@ Map categoryIntroduction={
           },
           {
             'category':"profile",
-            'title': "Mercado libre", 
+            'title': "Mercado livre", 
             'subtitle':"Información Producto",
             'icon': FaIcon(Icons.shopping_basket, size: iSizeIcon,color: getRandomColor()),
             'color': Colors.purple[300], 
@@ -520,22 +520,22 @@ Map categoryIntroduction={
             'codeFilePath': "lib/src/ui/pages/pages_profile/page_profile_productoMercadoLibre.dart", 
             'nameActivity': "Información Producto",
             'url':'https://s3.amazonaws.com/w3-cache.content-blog/wp-content/uploads/2017/12/15102434/1200x630-banner-mas-vendidos-640x336.jpg',
-            'nuevo':false ,'actualizado':false ,
+            'nuevo':false ,'actualizado':true ,
           },
           {
             'category':"profile",
-            'title': "Instagram", 
+            'title': "Instagran", 
             'subtitle':"Perfil de usuario",
             'icon': FaIcon(FontAwesomeIcons.instagram, size: iSizeIcon,color: getRandomColor()),
             'color': Colors.purple[300], 
             'rute': "page_profile_instagram", 
             'codeFilePath': "lib/src/ui/pages/pages_profile/page_profile_instagram.dart",
             'url':'',
-            'nuevo':false ,'actualizado':false ,
+            'nuevo':false ,'actualizado':true ,
           },
         {
           'category':"profile",
-          'title': "Facebook", 
+          'title': "Facebooc", 
           'subtitle':"",
           'icon': Icon(Icons.facebook,size:iSizeIcon,color: getRandomColor() ), 
           'color': Colors.blue[300], 
@@ -647,7 +647,6 @@ Map categoryIntroduction={
   const  List listFotos = [
     "https://i.pinimg.com/564x/42/a8/3d/42a83d3d5996c0cf43e5b8deb8e8ceee.jpg",
     "https://empresas.blogthinkbig.com/wp-content/uploads/2019/11/Fotos-portada-e1467633503131.jpg",
-    "https://www.tuenti.es/blog/wp-content/uploads/2018/09/App-videos-tecnologia.jpg",
     "https://media-cdn.tripadvisor.com/media/photo-s/19/36/20/9b/dopo-tre-anni-di-nuovo.jpg",
     "https://www.dzoom.org.es/wp-content/uploads/2010/09/mirada-ojos-encuadre-primer-plano-sexy-810x540.jpg",
     "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2018/08/fotos-perfil-whatsapp_16.jpg",

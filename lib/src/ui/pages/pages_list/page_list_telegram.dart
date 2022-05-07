@@ -68,7 +68,7 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
           child: CustomScrollView(
             /* CustomScrollView :Un ScrollView que crea efectos de desplazamiento personalizados usando astillas. */
             slivers: <Widget>[
-              sliverAppBar(context: context, title: "Telegram"),
+              sliverAppBar(context: context, title: "Telegran"),
               widgetWelcome(context: context),
               SliverToBoxAdapter(child: Divider(thickness: 14,color: colorDivider,)),
               sliverList(lista_contacto),
@@ -130,7 +130,7 @@ class _PagelistTelegramState extends State<PagelistTelegram> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-                  child: Text('Tus contactos de Telegram',
+                  child: Text('Tus contactos de Telegran',
                       style: TextStyle(fontSize: 16, color: Colors.blue)),
                 ),
                 getItem(listNombres[index]),

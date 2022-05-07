@@ -6,7 +6,9 @@ import 'package:desingapp/src/values/arrays.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 // Los link de de las depedencias se pueden encontrar en "Más" => Dependencias */
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../utils/widgets/widgets_utils_app.dart'; 
 
 /// DESCRIPCIÓN
 // Clon ui Perfil  de la red social instagram
@@ -49,7 +51,7 @@ class _PageProfileInstagramState extends State<PageProfileInstagram>  with Singl
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).canvasColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: appbar(),
       body: body(),
       bottomNavigationBar: bottomNavigationBar(context),
@@ -61,9 +63,10 @@ class _PageProfileInstagramState extends State<PageProfileInstagram>  with Singl
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       automaticallyImplyLeading: false,
-      title: Text('ivan__code',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 24.0),),
+      title: Text('ivan__code',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 24.0,color: Theme.of(context).textTheme.bodyText1?.color)),
       actions: <Widget>[
-        IconButton(icon: Icon(FontAwesomeIcons.bars), onPressed: (){})
+        WidgetsUtilsApp().buttonThemeBrightness(context: context),
+        IconButton(icon: Icon(FontAwesomeIcons.bars,color: Theme.of(context).textTheme.bodyText1?.color,), onPressed: (){}),
       ],
     );
   }
@@ -78,14 +81,14 @@ class _PageProfileInstagramState extends State<PageProfileInstagram>  with Singl
             // La vista de pestaña va aqui */
             body: Column(
               children: <Widget>[
-                Divider(height: 0.0,),
                 TabBar(
+                  indicatorColor: Theme.of(context).textTheme.bodyText1?.color,
                   tabs: [
-                    Tab( icon: FaIcon(FontAwesomeIcons.borderAll,size: 24.0) ),
-                    Tab(icon: FaIcon(FontAwesomeIcons.idBadge,size: 24.0)),
+                    Tab( icon: FaIcon(FontAwesomeIcons.borderAll,size: 24.0,color: Theme.of(context).textTheme.bodyText1?.color) ),
+                    Tab(icon: FaIcon(FontAwesomeIcons.idBadge,size: 24.0,color: Theme.of(context).textTheme.bodyText1?.color,)),
                   ],
                 ),
-                Divider(height: 0.0,),
+                Opacity(opacity: 0.3,child: Divider(height: 0.0,thickness: 0.2,color: Theme.of(context).textTheme.bodyText1?.color,)),
                 Expanded(
                   child: TabBarView(
                     children: [
@@ -102,7 +105,7 @@ class _PageProfileInstagramState extends State<PageProfileInstagram>  with Singl
   /// WIDGETS
   Widget bottomNavigationBar( BuildContext context) {
     return Theme(
-      data: Theme.of(context).copyWith(canvasColor:Theme.of(context).canvasColor),
+      data: Theme.of(context).copyWith(canvasColor:Theme.of(context).scaffoldBackgroundColor),
       child: BottomNavigationBar(
         elevation: 10.0,
         showSelectedLabels: false,
@@ -134,6 +137,7 @@ class _PageProfileInstagramState extends State<PageProfileInstagram>  with Singl
   }
 }
 // Contenido del perfil del usuario
+// ignore: must_be_immutable
 class ContentProfileUser extends StatelessWidget {
   ContentProfileUser({ required this.context});
   BuildContext context;
@@ -151,11 +155,14 @@ class ContentProfileUser extends StatelessWidget {
           SizedBox( height: 12.0 ),
           SizedBox(
             width: double.infinity,
-            child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0),side: BorderSide(color: Colors.grey)),
-              padding: EdgeInsets.all(8.0),
+            child: TextButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0),side: BorderSide(color: Colors.grey))),
+                padding: MaterialStateProperty.all(EdgeInsets.zero),
+                
+              ),
               onPressed: () {},
-              child: Text("Editar perfil",style: TextStyle(fontSize: 14.0,fontWeight:FontWeight.bold/* ,color:Theme.of(context).textTheme.bodyText1.color */)),
+              child: Text("Editar perfil",style: TextStyle(fontSize: 14.0,fontWeight:FontWeight.bold ,color:Theme.of(context).textTheme.bodyText1?.color)),
             ),
           ),
           SizedBox( height: 12.0),
