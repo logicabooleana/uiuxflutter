@@ -109,7 +109,7 @@ class PagelistaNetflixState extends State<PagelistaNetflix> {
                     children: [
                       Expanded(child: InkWell(splashColor: Colors.green,onTap: () {},child: Column(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[Icon(Icons.add,size: 24.0,),Text("Mi lista",style:TextStyle(fontSize: 10.0))]))),
                       // TODO:  Update
-                      Expanded(child: RaisedButton.icon(icon: Icon(Icons.play_arrow,color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white,),label:Text("Reproducir",style: TextStyle(fontWeight:FontWeight.bold,color:Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white),),onPressed:(){},color: Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black,)),
+                      Expanded(child: ElevatedButton.icon(icon: Icon(Icons.play_arrow,color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white,),label:Text("Reproducir",style: TextStyle(fontWeight:FontWeight.bold,color:Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white),),onPressed:(){},style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black)))),
                       Expanded(child: InkWell(splashColor: Colors.green,onTap: () {},child: Column(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[Icon(Icons.info_outline,size: 24.0,),Text("Más información",style:TextStyle(fontSize: 10.0))]))),
                     ],
                   ),

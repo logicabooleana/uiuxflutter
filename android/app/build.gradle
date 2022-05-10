@@ -13,12 +13,12 @@ if (flutterRoot == null) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '22'
+    flutterVersionCode = '23'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '2.1.4'
+    flutterVersionName = '3.0.0'
 }
 
 def keystoreProperties = new Properties()
@@ -61,7 +61,7 @@ android {
     // TODO :`flutter run --release` para produccion y --debug para desarrollo.
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }

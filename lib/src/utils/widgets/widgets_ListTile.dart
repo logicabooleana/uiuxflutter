@@ -1,7 +1,7 @@
 import 'package:desingapp/src/utils/widgets/widget_source_code_view.dart';
 import 'package:flutter/material.dart';
 import 'package:desingapp/src/utils/utils.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class WidgetListTile extends StatelessWidget {
 

@@ -68,8 +68,23 @@ class PageProfileNetflix extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:0.0),child: RaisedButton.icon(icon: Icon(Icons.play_arrow,color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white,),padding:EdgeInsets.all(0.0),elevation: 1.0,onPressed: () {},color: Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black,label: Text("Ver",style: TextStyle(fontSize: 14.0, color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white,fontWeight: FontWeight.bold)))),
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:0.0),child: RaisedButton.icon(icon: Icon(Icons.arrow_downward,color:Colors.white),padding:EdgeInsets.all(0.0),elevation: 1.0,onPressed: () {},color: Theme.of(context).brightness==Brightness.dark?Colors.grey[900]:Colors.grey[400],label: Text("Descargar",style: TextStyle(fontSize: 14.0, color:Colors.white,fontWeight: FontWeight.bold)))),
+              Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:0.0),child: ElevatedButton.icon(
+                icon: Icon(Icons.play_arrow,color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white),
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all(EdgeInsets.all(0.0)),
+                  elevation: MaterialStateProperty.all(1.0),
+                  backgroundColor: MaterialStateProperty.all(Theme.of(context).brightness==Brightness.dark?Colors.white:Colors.black)
+                ),
+                onPressed: () {},
+                label: Text("Ver",style: TextStyle(fontSize: 14.0, color: Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white,fontWeight: FontWeight.bold)))),
+              Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:0.0),child: ElevatedButton.icon(icon: Icon(Icons.arrow_downward,color:Colors.white),
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(EdgeInsets.all(0.0)),
+                  elevation: MaterialStateProperty.all(1.0),
+                  backgroundColor: MaterialStateProperty.all(Theme.of(context).brightness==Brightness.dark?Colors.grey[900]:Colors.grey[400])
+                ),
+              onPressed: () {},
+              label: Text("Descargar",style: TextStyle(fontSize: 14.0, color:Colors.white,fontWeight: FontWeight.bold)))),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(pelicula["description"]),

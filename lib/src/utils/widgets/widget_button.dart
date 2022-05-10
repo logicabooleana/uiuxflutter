@@ -34,11 +34,13 @@ class WidgetButtonCricle extends StatelessWidget {
     return Center(
       child: Container(
         width: width,
-        child: RaisedButton(
-          shape: StadiumBorder(side: BorderSide(width: 0.0,color: colorButtonBorder)),
-          padding: const EdgeInsets.symmetric(vertical: 12.0,horizontal: 12.0),
-          textColor: colorTexto,
-          color: colorButton,
+        child: ElevatedButton(
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 12.0,horizontal: 12.0)),
+            shape:MaterialStateProperty.all(StadiumBorder(side: BorderSide(width: 0.0,color: colorButtonBorder))),
+            textStyle:MaterialStateProperty.all( TextStyle(color:colorTexto )),
+            backgroundColor: MaterialStateProperty.all(colorButton),
+          ),
           child: Text(texto,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400),textAlign: TextAlign.center ),
           onPressed: () => Navigator.pushReplacementNamed(context, rute),
         ),
@@ -50,13 +52,14 @@ class WidgetButtonCricle extends StatelessWidget {
       child: Container(
         width: width,
         padding: EdgeInsets.all(12.0),
-        child: RaisedButton.icon(
-          shape: StadiumBorder(),
-          padding: const EdgeInsets.symmetric(vertical: 12.0,horizontal: 12.0),
-          textColor: colorTexto,
+        child: ElevatedButton.icon(
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 12.0,horizontal: 12.0)),
+            shape:MaterialStateProperty.all( StadiumBorder()),
+            textStyle:MaterialStateProperty.all( TextStyle(color:colorTexto )),
+            backgroundColor: MaterialStateProperty.all(colorButton),
+          ),
           icon: icon,
-          splashColor: colorSplash,
-          color: colorButton,
           label: Text(texto,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400),textAlign: TextAlign.center ),
           onPressed: () => Navigator.pushReplacementNamed(context, rute),
         ),
@@ -111,12 +114,14 @@ class WidgetButtonCricleLine extends StatelessWidget {
     return Center(
       child: Container(
         width: width,
-        child: RaisedButton(
-          shape: OutlineInputBorder( borderRadius: BorderRadius.circular(borderRadius),borderSide: BorderSide(width: borderSideWidth,color: colorButtonLine)),
-          padding: EdgeInsets.all(padding),
-          textColor: colorTexto,
-          color: colorButton,
-          elevation: elevation,
+        child: ElevatedButton(
+          style: ButtonStyle(
+            elevation:MaterialStateProperty.all(elevation),
+            padding: MaterialStateProperty.all(EdgeInsets.all(padding) ),
+            shape:MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: new BorderRadius.circular(borderRadius))),
+            textStyle:MaterialStateProperty.all( TextStyle(color:colorTexto )),
+            backgroundColor: MaterialStateProperty.all(colorButton),
+          ),
           child: Text(texto,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: fontSize,fontWeight: FontWeight.w300),textAlign: TextAlign.center ),
           onPressed: () => Navigator.pushReplacementNamed(context, rute),
         ),

@@ -175,12 +175,12 @@ class PageProfilePedidoYa extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(0.0),
-                  child: RaisedButton.icon(
-                      elevation: 0.0,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      padding: EdgeInsets.all(5.0),
+                  child: ElevatedButton.icon(
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
+                          padding:MaterialStateProperty.all(EdgeInsets.all(5.0)),
+                          elevation: MaterialStateProperty.all(0.0),
+                          backgroundColor: MaterialStateProperty.all(Colors.white)),
                       icon: Icon(Icons.search, color: Colors.grey[400]),
                       label: Text("Busca producto por nombre",
                           style: TextStyle(

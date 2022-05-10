@@ -89,7 +89,17 @@ class PageProfileBank extends StatelessWidget {
             SizedBox(height: 8.0),
             Text("JARDINERO.PLANO.PERRO",textAlign:TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight:FontWeight.bold)),
             SizedBox(height: 30.0),
-            Container(margin:const EdgeInsets.symmetric(horizontal: 50.0),padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:8.0),child: RaisedButton(padding:EdgeInsets.symmetric(horizontal:50.0,vertical: 12.0),elevation: 1.0,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),side: BorderSide(color: Colors.purple[100]!)),onPressed: () {},color:Colors.purple[100],textColor:Colors.purple[800],child: Text("Ver mi alias y cbu".toLowerCase().toUpperCase(),style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)))),
+            Container(margin:const EdgeInsets.symmetric(horizontal: 50.0),padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical:8.0),child: ElevatedButton(
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal:50.0,vertical: 12.0)),
+                elevation: MaterialStateProperty.all(1.0),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),side: BorderSide(color: Colors.purple[100]!))),
+                backgroundColor: MaterialStateProperty.all(Colors.purple[100]),
+                textStyle: MaterialStateProperty.all( TextStyle(color: Colors.purple[800])),
+              ),
+              onPressed: () {},
+              child: Text("Ver mi alias y cbu".toLowerCase().toUpperCase(),
+              style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)))),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
