@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../utils/widgets/widgets_utils_app.dart';
+
 ///  DESCRIPCIÓN
 //  Clon ui autenticación  de la red social twitter
 
@@ -16,27 +18,33 @@ class PageLoginTwitter extends StatefulWidget {
 }
 
 class _PageLoginTwitterState extends State<PageLoginTwitter> {
-  // var
-  bool colorFondoStado = false;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        // La clase BoxDecoration : proporciona una variedad de formas de dibujar un cuadro
-        decoration: colorFondoStado == false
-            ? null
-            : BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                    Color.fromRGBO(29, 202, 255, 1.0),
-                    Color.fromRGBO(29, 161, 242, 1.0)
-                  ])),
-        child: SafeArea(
-          // SafeArea : Un widget que inserta a su hijo con suficiente relleno para evitar intrusiones por parte del sistema operativo. */
-          child: loginTwitter(context),
+    return Theme(
+      data: ThemeData.dark(),
+      child: Scaffold(
+        body: Container(
+          // La clase BoxDecoration : proporciona una variedad de formas de dibujar un cuadro
+          decoration: Theme.of(context).brightness == Brightness.dark 
+              ? BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                      Theme.of(context).scaffoldBackgroundColor,Theme.of(context).scaffoldBackgroundColor
+                    ]))
+              : BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                      Color.fromRGBO(29, 202, 255, 1.0),
+                      Color.fromRGBO(29, 161, 242, 1.0)
+                    ])),
+          child: SafeArea(
+            // SafeArea : Un widget que inserta a su hijo con suficiente relleno para evitar intrusiones por parte del sistema operativo. */
+            child: loginTwitter(context),
+          ),
         ),
       ),
     );
@@ -78,24 +86,22 @@ class _PageLoginTwitterState extends State<PageLoginTwitter> {
                 ],
               ),
               SizedBox(height: 50.0),
-                                  Text("Iniciar sesión con correo electrónico",
-                  style: TextStyle(fontSize: 14.0),
-                  textAlign: TextAlign.center),
+              TextButton(
+                  onPressed: () {},
+                  child: Text('Iniciar sesión con correo electrónico',
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.blue
+                              : Colors.white))),
               SizedBox(height: 20.0),
             ],
-            ),
+          ),
         ),
         // Agrega dos botones
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            IconButton(
-                icon: Icon(Icons.invert_colors),
-                  onPressed: () {
-            setState(() {
-                    colorFondoStado = !colorFondoStado;
-                  }  );
-                }),
+            WidgetsUtilsApp().buttonThemeBrightness(context: context),
           ],
         ),
       ],

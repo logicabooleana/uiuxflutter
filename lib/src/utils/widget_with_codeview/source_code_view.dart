@@ -119,7 +119,7 @@ class _SourceCodeViewState extends State<SourceCodeView> {
   void _createInterstitialAd() {
     InterstitialAd.load(
       // TODO : UPDATE ID for release ( InterstitialAd )
-        adUnitId: InterstitialAd.testAdUnitId, //"ca-app-pub-8441738551183357/3829815326",// InterstitialAd.testAdUnitId,
+        adUnitId: "ca-app-pub-8441738551183357/3829815326", //"ca-app-pub-8441738551183357/3829815326",// InterstitialAd.testAdUnitId,
         request: request,
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {

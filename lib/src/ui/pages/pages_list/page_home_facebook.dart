@@ -157,7 +157,7 @@ class PageHomeFacebook extends StatelessWidget {
     );
   }
 
-  // WIDGETS
+  // WIDGETS VIEWS
   PreferredSizeWidget appBar({required BuildContext context}) {
     return AppBar(
       leading: Icon(Icons.facebook, color: Colors.blue, size: 40),
@@ -188,6 +188,7 @@ class PageHomeFacebook extends StatelessWidget {
   }
 
   Widget body({required BuildContext context}) {
+
     // wigets
     Widget widgets = Column(children: [
       Container(

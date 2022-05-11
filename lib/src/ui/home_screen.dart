@@ -264,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
       {required List items, required BuildContext context}) {
     List<Widget> list = [];
     for (var i = 0; i < items.length; i++) {
-      list.add(WidgetListTile(
+      list.add(WidgetListTile(  
           context: context,
           actualizado: items[i]["actualizado"] ?? false,
           nuevo: items[i]["nuevo"] ?? false,
@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
           subtitle: items[i]["subtitle"] ?? "",
           codeFilePath: items[i]["codeFilePath"] ?? "",
           nameActivity: items[i]["nameActivity"] ?? "",
-          animated: items[i]["animated"] ?? false));
+        ));
     }
     return list;
   }
@@ -382,8 +382,6 @@ class CarruselCardNews extends StatelessWidget {
                       child: Center(
                     child: ListView(
                       shrinkWrap: true,
-
-                      //mainAxisAlignment:MainAxisAlignment.center,
                       children: [
                         Chip(
                             label: Text(

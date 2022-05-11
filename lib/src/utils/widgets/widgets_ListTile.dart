@@ -6,7 +6,6 @@ import 'package:share_plus/share_plus.dart';
 class WidgetListTile extends StatelessWidget {
 
   final bool nuevo;
-  final bool animated;
   final bool actualizado;
   final bool activeColor;
   final String title;
@@ -35,7 +34,6 @@ class WidgetListTile extends StatelessWidget {
     this.route="",
     this.activeColor=false,
     this.nuevo=false,
-    this.animated=false,
     this.actualizado=false,
     this.colorText=Colors.white,
   });
@@ -77,12 +75,6 @@ class WidgetListTile extends StatelessWidget {
                   padding: const EdgeInsets.all(0),
                   labelPadding: const EdgeInsets.symmetric(horizontal: 12,vertical:0),
                   label:Text('Actualizado',style: TextStyle(color: Colors.white,fontSize:12))):Container(),
-                this.animated?
-                Chip(
-                  backgroundColor: Colors.deepPurple[400],
-                  padding: const EdgeInsets.all(0),
-                  labelPadding: const EdgeInsets.symmetric(horizontal: 12,vertical:0),
-                  label:Text('Animación',style: TextStyle(color: Colors.white,fontSize:12))):Container(),
               ],
             ),
           ],

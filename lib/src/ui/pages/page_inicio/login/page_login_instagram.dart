@@ -53,13 +53,14 @@ class _PageLoginInstagramState extends State<PageLoginInstagram> {
                       SizedBox(height: 20.0),
                       TextField( obscureText: true, decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),enabledBorder: OutlineInputBorder(borderSide: BorderSide(color:Colors.white70)), labelText: 'Contraseña',labelStyle: TextStyle(color:Colors.white))),
                       SizedBox(height: 20.0),
-                      InkWell(
-                        child: Container(
-                            padding: EdgeInsets.all(16.0),
-                            child: Text("iniciar sesión",style: TextStyle(fontSize: 14.0,color:Colors.white),textAlign: TextAlign.center),
-                            width: double.infinity,
-                            decoration: BoxDecoration(border: Border.all(color: Colors.white70, width: 0.5),borderRadius: BorderRadius.all(Radius.circular(5.0)))),
-                        onTap: () {},
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () {},
+                            child: Text('iniciar sesión',style: TextStyle(color: Theme.of(context).brightness==Brightness.dark?Colors.blue:Colors.white),),
+                            style: ButtonStyle(
+                              padding: MaterialStateProperty.all(EdgeInsets.all(12))),
+                          ),
                       ),
                       SizedBox(height: 20.0),
                       Text("¿Ha olvidado sus datos de acceso? obtenga ayuda para iniciar sesión.",textAlign: TextAlign.center,style: TextStyle(color:Colors.white)),

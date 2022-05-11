@@ -185,12 +185,13 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
       ),
     );
   }
-
+  
+  // WIDGETS VIEWS
   PreferredSizeWidget appBar({required BuildContext context}) {
     return AppBar(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
-        ? Colors.grey[900]
-        : Colors.purple,
+          ? Colors.grey[900]
+          : Colors.purple,
       leading: Container(),
       leadingWidth: 0,
       title: Row(
@@ -225,7 +226,8 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
       ),
       centerTitle: true,
       actions: [
-        WidgetsUtilsApp().buttonThemeBrightness(context: context, color: Colors.white),
+        WidgetsUtilsApp()
+            .buttonThemeBrightness(context: context, color: Colors.white),
       ],
     );
   }
@@ -261,7 +263,7 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
       itemBuilder: (context, index) => views[index],
     );
   }
-
+  // WIDGETS COMPONENTS
   Widget _pageMainScreem({required BuildContext context}) {
     // page - menú principal
     return Column(
@@ -415,67 +417,28 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
             // indicador con un icono y texto en la parte superior de la vista
             Column(
               children: [
-                Icon(Icons.keyboard_arrow_up,
-                    size: 30.0, color: Colors.white54),
-                Text(titleAnterio,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white54)),
+                Icon(Icons.keyboard_arrow_up,size: 30.0, color: Colors.white54),
+                Text(titleAnterio,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white54)),
               ],
             ),
-            // texto que indica el nombre de la cátegoria
-            Center(
-                child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(obj["name"],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 24.0, fontWeight: FontWeight.bold)),
-                      ],
-                    ))),
-            // carrusel de tarjetas expandido
             Expanded(
-              child: CarouselSlider.builder(
-                options: CarouselOptions(
-                    enlargeCenterPage: true,
-                    viewportFraction: 0.7,
-                    height: double.infinity,
-                    enableInfiniteScroll: listItemss.length == 1 ? false : true,
-                    autoPlay: listItemss.length == 1 ? false : true),
-                itemCount: listItemss.length,
-                itemBuilder: (context, index, realIndex) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: 0.0, left: 12.0, right: 12.0, top: 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        // card
-                        CardRoom(context: context, obj: listItemss[index]),
-                        // button
-                        button(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 14.0, horizontal: 14.0),
-                            borderRadius: 30.0,
-                            text: listItemss[index]["disponibilidad"]
-                                ? 'RESERVAR'
-                                : 'OCUPADA',
-                            colorButton: listItemss[index]["disponibilidad"]
-                                ? Colors.white30
-                                : Colors.transparent,
-                            colorText: Colors.white,
-                            onPressed: listItemss[index]["disponibilidad"]
-                                ? () {}
-                                : null),
-                      ],
-                    ),
-                  );
-                },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // texto que indica el nombre de la cátegoria
+                  Text(obj["name"],textAlign: TextAlign.center,style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 50),
+                  // carrusel de tarjetas expandido
+                  CarouselSlider.builder(
+                    options: CarouselOptions(enlargeCenterPage: true,viewportFraction: 0.7,height: 350,enableInfiniteScroll: listItemss.length == 1 ? false : true,autoPlay: listItemss.length == 1 ? false : true),
+                    itemCount: listItemss.length,
+                    itemBuilder: (context, index, realIndex) {
+
+                      return CardRoom(context: context, obj: listItemss[index]);
+                    },
+                  ),
+                ],
               ),
             ),
             // indicador con un  icono y texto en la parte inferior de la vista
@@ -483,16 +446,8 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
                 ? Container()
                 : Column(
                     children: [
-                      Text(titleSiguiente,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white54)),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.white54,
-                        size: 30.0,
-                      ),
+                      Text(titleSiguiente,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white54)),
+                      Icon(Icons.keyboard_arrow_down,color: Colors.white54,size: 30.0),
                     ],
                   ),
           ],
@@ -500,8 +455,6 @@ class _PageMainScreenHotelState extends State<PageMainScreenHotel>
       ],
     );
   }
-
-  /// WIDGETS COMPONENTS
   Widget button(
       {required String text,
       double fontSize = 14.0,
@@ -619,7 +572,6 @@ class CardRoom extends StatefulWidget {
   CardRoom({required this.context, required this.obj});
 
   // tarjeta expandido lo maximó posible
-  bool like = false;
   final BuildContext context;
   final dynamic obj;
 
@@ -628,118 +580,141 @@ class CardRoom extends StatefulWidget {
 }
 
 class _CardRoomState extends State<CardRoom> {
+
+  // values 
+  bool like = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 12.0,
-        color: Colors.white38,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            // imagen con bordes redondeados
-            CachedNetworkImage(
-                fadeInDuration: Duration(milliseconds: 300),
-                fit: BoxFit.cover,
-                imageUrl: widget.obj["urlImage"],
-                placeholder: (context, urlImage) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (context, urlImage, error) =>
-                    Center(child: Container(color: Colors.grey[900]))),
-            Column(
-              children: [
-                Expanded(child: Container()),
-                // cantidad y boton de 'me gusta'y el numero de la habitación
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(bottom: 12, right: 8, left: 8),
-                  decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // tres CircleAvatar superpuestos
-                          Stack(
-                            alignment: AlignmentDirectional.centerStart,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 16, top: 8.0),
-                                child: CircleAvatar(
-                                    maxRadius: 10.0,
-                                    minRadius: 10.0,
-                                    backgroundColor: Colors.grey[300]),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, top: 8.0),
-                                child: CircleAvatar(
-                                    maxRadius: 10.0,
-                                    minRadius: 10.0,
-                                    backgroundColor: Colors.grey[400]),
-                              ),
-                              Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 14, top: 8.0),
+      height: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15),
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          elevation: 12.0,
+          color: Colors.white38,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              // imagen con bordes redondeados
+              CachedNetworkImage(
+                  fadeInDuration: Duration(milliseconds: 300),
+                  fit: BoxFit.cover,
+                  imageUrl: widget.obj["urlImage"],
+                  placeholder: (context, urlImage) =>
+                      Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, urlImage, error) =>
+                      Center(child: Container(color: Colors.grey[900]))),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 24,right: 12,top: 12),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(widget.obj["num"],
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white54,
+                                fontSize: 28.0,
+                                fontWeight: FontWeight.bold)),
+                        Expanded(child: Container()),
+                      ],
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  // cantidad y boton de 'me gusta'y el numero de la habitación
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.only(bottom: 0, right: 0, left: 0),
+                    padding: EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                        color: Colors.white54,
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // tres CircleAvatar superpuestos
+                            Stack(
+                              alignment: AlignmentDirectional.centerStart,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 16),
                                   child: CircleAvatar(
                                       maxRadius: 10.0,
                                       minRadius: 10.0,
-                                      backgroundColor: Colors.grey)),
-                            ],
-                          ),
-                          // cantidad de ' me gusta'
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 8.0, right: 12.0, top: 8.0),
-                            child: Text(
-                              'y a ${widget.obj["favorite"]} personas le gusto',
-                              style: const TextStyle(
-                                  overflow: TextOverflow.ellipsis,
-                                  color: Colors.white,
-                                  fontSize: 12.0),
+                                      backgroundColor: Colors.grey[300]),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 8),
+                                  child: CircleAvatar(
+                                      maxRadius: 10.0,
+                                      minRadius: 10.0,
+                                      backgroundColor: Colors.grey[400]),
+                                ),
+                                Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 14),
+                                    child: CircleAvatar(
+                                        maxRadius: 10.0,
+                                        minRadius: 10.0,
+                                        backgroundColor: Colors.grey)),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
+                            // cantidad de ' me gusta'
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 8.0, right: 12.0),
+                              child: Text(
+                                'y a ${widget.obj["favorite"]} personas le gusto',
+                                style: const TextStyle(
+                                    overflow: TextOverflow.ellipsis,
+                                    color: Colors.white,
+                                    fontSize: 12.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // buttons
+                        SizedBox(height:8),
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                elevation: MaterialStateProperty.all(0),
+                              ),
+                              onPressed: widget.obj["disponibilidad"]?(){}:null, child:Text(widget.obj["disponibilidad"]?'Reservar':'Reservado')),
+                              Expanded(child: Container()),
+                            IconButton(
                               onPressed: () =>
-                                  setState(() => widget.like = !widget.like),
+                                  setState(() => like = !like),
                               icon: Icon(
-                                  widget.like
+                                  like
                                       ? Icons.favorite
                                       : Icons.favorite_border_outlined,
                                   size: 30.0,
-                                  color:
-                                      widget.like ? Colors.red : Colors.white)),
-                          Text(widget.obj["num"],
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                    ],
+                                  color:like ? Colors.red : Colors.white)),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

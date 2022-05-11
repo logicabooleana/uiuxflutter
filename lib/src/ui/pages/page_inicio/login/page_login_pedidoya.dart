@@ -66,7 +66,7 @@ class PageLoginPedidoYa extends StatelessWidget {
       child: CachedNetworkImage(
         fadeInDuration: Duration(milliseconds: 300),
         fit: BoxFit.cover,
-        imageUrl: "https://tynmedia.com/tynmag/wp-content/uploads/sites/3/2018/04/PampitYa-PedidosYa-1-e1524194256744.jpg",
+        imageUrl: "https://tynmagazine.com/wp-content/uploads/sites/3/2018/04/PampitYa-PedidosYa-1-e1524194256744.jpg",
         placeholder: (context, urlImage) => Center(child: Container(color: Colors.grey[900])),
         errorWidget: (context, urlImage, error) => Center(child: Container(color: Colors.grey[900])),
       ),

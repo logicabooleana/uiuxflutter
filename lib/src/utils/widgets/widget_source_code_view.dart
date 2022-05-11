@@ -49,7 +49,7 @@ class CodeFileWidgetState extends State<CodeFileWidget> {
   // admob
   final BannerAd bannerAd = BannerAd(
     adUnitId:
-        'ca-app-pub-3940256099942544/6300978111', //TODO : release: 'ca-app-pub-8441738551183357/7168683003' , test: 'ca-app-pub-3940256099942544/6300978111',
+        'ca-app-pub-8441738551183357/7168683003', //TODO : release: 'ca-app-pub-8441738551183357/7168683003' , test: 'ca-app-pub-3940256099942544/6300978111',
     request: AdRequest(),
     size: AdSize.banner,
     listener: BannerAdListener(

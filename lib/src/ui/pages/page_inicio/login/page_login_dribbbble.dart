@@ -4,7 +4,9 @@
 import 'package:flutter/material.dart';
 // Los link de de las depedencias se pueden encontrar en "Más" => Dependencias 
 import 'package:google_fonts/google_fonts.dart'; 
-import 'package:lottie/lottie.dart';  
+import 'package:lottie/lottie.dart';
+
+import '../../../../utils/widgets/widgets_utils_app.dart';  
 
 
 class PageLoginDribbbble extends StatefulWidget {
@@ -15,7 +17,6 @@ class PageLoginDribbbble extends StatefulWidget {
 class _PageLoginDribbbbleState extends State<PageLoginDribbbble> with TickerProviderStateMixin {
   
   // var
-  bool colorFondoStado = false;
   late AnimationController _controllerLogo;  
 
   @override
@@ -31,12 +32,17 @@ class _PageLoginDribbbbleState extends State<PageLoginDribbbble> with TickerProv
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      body: Container(
-        // La clase BoxDecoration : proporciona una variedad de formas de dibujar un cuadro. 
-        decoration: colorFondoStado==false? null:BoxDecoration(gradient: LinearGradient(begin: Alignment.topRight,end: Alignment.bottomLeft,colors: [Color.fromRGBO(233, 76, 136,1.0),Color.fromRGBO(233, 76, 136,1.0)])),
-        child: SafeArea(  //  SafeArea : Un widget que inserta a su hijo con suficiente relleno para evitar intrusiones por parte del sistema operativo. */
-          child: logindribbbble(context),
+    return Theme(
+      data: ThemeData.dark(),
+      child: Scaffold( 
+        body: Container(
+          // La clase BoxDecoration : proporciona una variedad de formas de dibujar un cuadro. 
+          decoration: Theme.of(context).brightness==Brightness.dark? 
+          BoxDecoration(gradient: LinearGradient(begin: Alignment.topRight,end: Alignment.bottomLeft,colors: [Theme.of(context).scaffoldBackgroundColor,Theme.of(context).scaffoldBackgroundColor]))
+          :BoxDecoration(gradient: LinearGradient(begin: Alignment.topRight,end: Alignment.bottomLeft,colors: [Color.fromRGBO(233, 76, 136,1.0),Color.fromRGBO(233, 76, 136,1.0)])),
+          child: SafeArea(  //  SafeArea : Un widget que inserta a su hijo con suficiente relleno para evitar intrusiones por parte del sistema operativo. */
+            child: logindribbbble(context),
+          ),
         ),
       ),
     );
@@ -59,7 +65,14 @@ class _PageLoginDribbbbleState extends State<PageLoginDribbbble> with TickerProv
                 TextField( decoration: InputDecoration( labelText: 'Correo electrónico o teléfono') ),
                 SizedBox(height: 20.0),
                 TextField( obscureText: true, decoration: InputDecoration( labelText: 'Contraseña')),
-                SizedBox(height: 20.0),
+                SizedBox(height: 50.0),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('Iniciar sesión',
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.blue
+                              : Colors.white))),
                 SizedBox(height: 20.0),
               ],
             ),
@@ -69,7 +82,7 @@ class _PageLoginDribbbbleState extends State<PageLoginDribbbble> with TickerProv
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            IconButton(icon: Icon(Icons.invert_colors),onPressed: (){ setState((){ colorFondoStado=!colorFondoStado; });}),
+            WidgetsUtilsApp().buttonThemeBrightness(context: context),
           ],
         ),
     ],
